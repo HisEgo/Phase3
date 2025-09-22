@@ -5,10 +5,21 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Screen;
+import leaderboard.LeaderboardManager;
+import leaderboard.LevelRecord;
+import leaderboard.PlayerRecord;
+import leaderboard.ScoreRecord;
 import view.MainMenuView;
+import view.LeaderboardView;
+import view.MultiplayerGameView;
+import view.MultiplayerLobbyView;
 import controller.GameController;
 import model.GameState;
 import model.GameLevel;
@@ -34,11 +45,11 @@ public class MainApp {
     public static void launch(Class<? extends MainApp> appClass, String[] args) {
         Application.launch(AppLauncher.class, args);
     }
-
     private Stage primaryStage;
     private GameController gameController;
     private GameState gameState;
     private MainMenuView mainMenuView;
+
 
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -472,4 +483,469 @@ public class MainApp {
     public Stage getPrimaryStage() {
         return primaryStage;
     }
+
+    public void setNetworkManager(network.NetworkManager networkManager) {
+        this.networkManager = networkManager;
+    }
+
+    public network.NetworkManager getNetworkManager() {
+        return networkManager;
+    }
+
+    public void showLeaderboard() {
+        // Check if primaryStage is properly initialized
+        if (primaryStage == null) {
+            showErrorDialog("Leaderboard Error", "Application not properly initialized",
+                    "The primary stage is null. Please restart the application.");
+            return;
+        }
+
+        if (primaryStage.getScene() == null) {
+            Scene scene = new Scene(leaderboardView.getRoot());
+            primaryStage.setScene(scene);
+        } else {
+            primaryStage.getScene().setRoot(leaderboardView.getRoot());
+        }
+        primaryStage.show();
+    }
+
+    public void createMultiplayerGame() {
+
+        // Generate a unique game ID
+        String gameId = "GAME" + String.format("%03d", (int)(Math.random() * 1000));
+
+        // Show game ID to the player
+        showGameIdDialog(gameId, true);
+
+        // Check if primaryStage is properly initialized
+        if (primaryStage == null) {
+            showErrorDialog("Multiplayer Error", "Application not properly initialized",
+                    "The primary stage is null. Please restart the application.");
+            return;
+        }
+
+        if (primaryStage.getScene() == null) {
+            Scene scene = new Scene(multiplayerGameView.getRoot());
+            primaryStage.setScene(scene);
+        } else {
+            primaryStage.getScene().setRoot(multiplayerGameView.getRoot());
+        }
+        primaryStage.show();
+
+        // Create and connect the multiplayer game controller with the generated game ID
+        createMultiplayerGameController(gameId, "Player 1", true);
+
+        // Start the setup phase
+        multiplayerGameView.startSetupPhase();
+    }
+
+    private void createMultiplayerGameController() {
+        createMultiplayerGameController("GAME001", "Player 1", true);
+    }
+
+    private void createMultiplayerGameController(String gameId, String playerName, boolean isHost) {
+
+        // Reuse the existing NetworkManager so the same server-side clientId is used
+        // This ensures server GAME_STATE_UPDATE messages (timer) reach this client
+        network.NetworkManager networkManager = this.networkManager;
+
+        if (networkManager == null) {
+
+            // Use server default port (8081) to ensure joiner receives updates
+            networkManager = new network.NetworkManager("localhost", 8081);
+            // Store it for reuse across lobby and game controller
+            this.networkManager = networkManager;
+        }
+
+        // Set up connection status callback
+        networkManager.setConnectionStatusCallback(status -> {
+            Platform.runLater(() -> {
+                System.out.println("Network Status: " + status);
+            });
+        });
+
+        // Ensure messages are routed to MainApp handler (controller/lobby will delegate as needed)
+        networkManager.setMessageCallback(message -> {
+            Platform.runLater(() -> {
+                handleMultiplayerMessage(message);
+            });
+        });
+
+        // Connect if not already connected
+        if (!networkManager.isConnected()) {
+
+            if (!networkManager.connect()) {
+                showErrorDialog("Connection Error", "Failed to connect to server",
+                        "Could not establish connection to the game server. Please ensure the server is running.");
+                return;
+            }
+
+        } else {
+
+        }
+
+        // Determine player IDs based on host status
+        // Host is always Player 1, joiner is always Player 2
+        String player1Id = "Player 1";
+        String player2Id = "Player 2";
+
+        // Create the multiplayer game controller with real network connection
+        multiplayer.MultiplayerGameController controller =
+                new multiplayer.MultiplayerGameController(
+                        player1Id, player2Id, gameId, networkManager
+                );
+
+        // Set the current player ID for this controller instance
+        // Host is always Player 1, joiner is always Player 2
+        String currentPlayerId = isHost ? "Player 1" : "Player 2";
+        controller.setCurrentPlayerId(currentPlayerId);
+        System.out.println("  Controller currentPlayerId set to: " + currentPlayerId);
+
+        // Connect the controller to the view
+        multiplayerGameView.setGameController(controller);
+
+        // Set the game view reference in the controller for UI updates
+        controller.setGameView(multiplayerGameView);
+
+        // Send multiplayer session request to server
+        if (isHost) {
+
+            sendCreateGameRequest(gameId, playerName, networkManager);
+        } else {
+
+            sendJoinGameRequest(gameId, playerName, networkManager);
+        }
+
+
+        System.out.println("Multiplayer game controller created for game " + gameId +
+                " with player " + playerName + " as " + (isHost ? "host" : "client"));
+    }
+
+    private void handleMultiplayerMessage(network.NetworkMessage message) {
+        // Always log message type for debugging
+        System.out.println("🔍 MAINAPP: Received " + message.getType() + " from: " + message.getPlayerId());
+
+        // Only log important message types to reduce noise (keeping for reference)
+        // if (message.getType() == com.networksimulation.network.NetworkMessage.MessageType.NETWORK_DATA ||
+        //     message.getType() == com.networksimulation.network.NetworkMessage.MessageType.GAME_OVER ||
+        //     message.getType() == com.networksimulation.network.NetworkMessage.MessageType.MULTIPLAYER_INVITE) {
+        //     System.out.println("🔍 MAINAPP: Received " + message.getType() + " from: " + message.getPlayerId());
+        // }
+
+        switch (message.getType()) {
+            case MULTIPLAYER_INVITE:
+                handleMultiplayerInvite(message);
+                break;
+            case MULTIPLAYER_ACCEPT:
+                handleMultiplayerAccept(message);
+                break;
+            case MULTIPLAYER_REJECT:
+                handleMultiplayerReject(message);
+                break;
+            case GAME_STATE_UPDATE:
+                handleGameStateUpdate(message);
+                break;
+            case NETWORK_DATA:
+                System.out.println("📡 MAINAPP: Processing NETWORK_DATA message");
+                handleNetworkData(message);
+                break;
+            case PLAYER_ACTION:
+                handlePlayerAction(message);
+                break;
+            case GAME_OVER:
+                handleGameOver(message);
+                break;
+            default:
+                System.out.println("⚠️ MAINAPP: Unhandled message type: " + message.getType());
+                break;
+        }
+    }
+
+    private void sendCreateGameRequest(String gameId, String playerName, network.NetworkManager networkManager) {
+        network.NetworkMessage message = new network.NetworkMessage(
+                network.NetworkMessage.MessageType.MULTIPLAYER_INVITE,
+                playerName,
+                gameId,
+                "CREATE_GAME"
+        );
+        boolean sent = networkManager.sendMessage(message);
+    }
+
+    private void sendJoinGameRequest(String gameId, String playerName, network.NetworkManager networkManager) {
+        network.NetworkMessage message = new network.NetworkMessage(
+                network.NetworkMessage.MessageType.MULTIPLAYER_ACCEPT,
+                playerName,
+                gameId,
+                "JOIN_GAME"
+        );
+        boolean sent = networkManager.sendMessage(message);
+    }
+
+    private void handleMultiplayerInvite(network.NetworkMessage message) {
+        String data = (String) message.getData();
+
+        if ("GAME_CREATED".equals(data)) {
+
+            // Game created successfully, continue with multiplayer setup
+        } else if ("GAME_CREATION_FAILED".equals(data)) {
+
+            showErrorDialog("Create Game Failed", "Game Creation Failed",
+                    "Failed to create a new game. Please try again.");
+            // Stop the multiplayer setup since creation failed
+            return;
+        } else {
+        }
+    }
+
+    private void handleMultiplayerAccept(network.NetworkMessage message) {
+        String data = (String) message.getData();
+
+        if ("GAME_JOINED".equals(data)) {
+
+            // Game joined successfully, continue with multiplayer setup
+        } else if ("GAME_JOIN_FAILED".equals(data)) {
+
+            showErrorDialog("Join Game Failed", "No Available Game",
+                    "No game is available to join. Please create a new game or check the game ID.");
+            // Stop the multiplayer setup since join failed
+            return;
+        } else {
+        }
+    }
+
+    private void handleMultiplayerReject(network.NetworkMessage message) {
+        System.out.println("Multiplayer game rejected: " + message.getData());
+        showErrorDialog("Game Rejected", "Game Request Rejected",
+                "The other player has rejected your game invitation.");
+    }
+
+
+    private void handleGameStateUpdate(network.NetworkMessage message) {
+        // Forward the message to the multiplayer game controller for proper handling
+        if (multiplayerGameView != null && multiplayerGameView.getGameController() != null) {
+
+            // Check if this is network data (GameLevel object)
+            if (message.getData() instanceof model.GameLevel) {
+
+                multiplayerGameView.getGameController().receiveOpponentNetworkData(
+                        message.getPlayerId(),
+                        (model.GameLevel) message.getData()
+                );
+            } else {
+                // Handle other game state updates (including timer updates)
+
+                multiplayerGameView.getGameController().updateGameState(message.getData());
+            }
+        } else {
+
+            if (multiplayerGameView != null) {
+            }
+        }
+    }
+
+    private void handlePlayerAction(network.NetworkMessage message) {
+        // Only log non-ammunition requests to reduce noise
+        if (message.getData() != null && !message.getData().toString().contains("AMMUNITION_REQUEST")) {
+            System.out.println("Player action received: " + message.getData());
+        }
+        // Handle opponent's actions
+        if (multiplayerGameView != null && multiplayerGameView.getGameController() != null) {
+            multiplayerGameView.getGameController().handleOpponentAction(message.getData());
+        }
+    }
+
+    private void handleGameOver(network.NetworkMessage message) {
+        System.out.println("Game over: " + message.getData());
+        // Handle game end logic
+        Platform.runLater(() -> {
+            showErrorDialog("Game Over", "Game Ended",
+                    "The multiplayer game has ended. " + message.getData());
+        });
+    }
+
+
+    public void showMultiplayerLobby() {
+        // Check if primaryStage is properly initialized
+        if (primaryStage == null) {
+            showErrorDialog("Multiplayer Lobby Error", "Application not properly initialized",
+                    "The primary stage is null. Please restart the application.");
+            return;
+        }
+
+        if (primaryStage.getScene() == null) {
+            Scene scene = new Scene(multiplayerLobbyView.getRoot());
+            primaryStage.setScene(scene);
+        } else {
+            primaryStage.getScene().setRoot(multiplayerLobbyView.getRoot());
+        }
+        primaryStage.show();
+    }
+
+    public void startMultiplayerGame(String gameId, String playerName, boolean isHost) {
+        // Reset the multiplayer view to ensure clean state
+        multiplayerGameView.resetToInitialState();
+
+        // Debug logging
+
+        System.out.println("  gameId: " + gameId);
+        System.out.println("  playerName: " + playerName);
+        System.out.println("  isHost: " + isHost);
+
+        // Determine current player ID based on host status
+        // Host is always Player 1, joiner is always Player 2
+        String currentPlayerId = isHost ? "Player 1" : "Player 2";
+        System.out.println("  currentPlayerId determined: " + currentPlayerId + " (playerName: " + playerName + ", isHost: " + isHost + ")");
+        multiplayerGameView.setCurrentPlayerId(currentPlayerId);
+
+        if (primaryStage.getScene() == null) {
+            Scene scene = new Scene(multiplayerGameView.getRoot());
+            primaryStage.setScene(scene);
+        } else {
+            primaryStage.getScene().setRoot(multiplayerGameView.getRoot());
+        }
+        primaryStage.show();
+
+        // Ensure that, from this moment, all server messages (including timer updates)
+        // are routed to the MainApp handler instead of the lobby.
+        // This prevents the joiner's setup timer from staying at the initial 01:00.
+        if (this.networkManager != null) {
+            network.NetworkManager nm = this.networkManager;
+            nm.setMessageCallback(message -> {
+                javafx.application.Platform.runLater(() -> {
+                    handleMultiplayerMessage(message);
+                });
+            });
+        }
+
+        // Create and connect the multiplayer game controller with proper player info
+        createMultiplayerGameController(gameId, playerName, isHost);
+
+        // Start the setup phase
+        multiplayerGameView.startSetupPhase();
+    }
+
+    public void forwardGameStateUpdate(Object gameStateData) {
+
+        // Check if we're in multiplayer game view with a controller
+        if (multiplayerGameView != null && multiplayerGameView.getGameController() != null) {
+
+            multiplayerGameView.getGameController().updateGameState(gameStateData);
+        }
+        // Check if we're in lobby view - forward to lobby for timer updates
+        else if (multiplayerLobbyView != null) {
+
+            multiplayerLobbyView.handleLobbyMessage(new com.networksimulation.network.NetworkMessage(
+                    com.networksimulation.network.NetworkMessage.MessageType.GAME_STATE_UPDATE,
+                    "SERVER",
+                    "LOBBY",
+                    gameStateData
+            ));
+        } else {
+
+            if (multiplayerGameView != null) {
+            }
+        }
+    }
+
+    private void handleNetworkData(network.NetworkMessage message) {
+        System.out.println("📨 MAINAPP: Received NETWORK_DATA from " + message.getPlayerId());
+
+        // Forward to multiplayer game controller if available
+        if (multiplayerGameView != null && multiplayerGameView.getGameController() != null) {
+            model.GameLevel opponentNetwork = null;
+
+            // Extract network data from message
+            Object networkData = message.getData();
+            if (networkData instanceof model.GameLevel) {
+                opponentNetwork = (model.GameLevel) networkData;
+                System.out.println("✅ MAINAPP: Received GameLevel directly");
+            } else if (networkData instanceof java.util.Map) {
+                // Convert LinkedHashMap back to GameLevel using Jackson
+                try {
+                    com.fasterxml.jackson.databind.ObjectMapper mapper = new com.fasterxml.jackson.databind.ObjectMapper();
+                    opponentNetwork = mapper.convertValue(networkData, model.GameLevel.class);
+                    System.out.println("✅ MAINAPP: Converted LinkedHashMap to GameLevel");
+                } catch (Exception e) {
+                    System.err.println("❌ MAINAPP: Failed to convert LinkedHashMap to GameLevel: " + e.getMessage());
+                    return;
+                }
+            } else {
+                System.out.println("❌ MAINAPP: Network data is not GameLevel or Map: " +
+                        (networkData != null ? networkData.getClass().getSimpleName() : "null"));
+                return;
+            }
+
+            if (opponentNetwork != null) {
+                System.out.println("✅ MAINAPP: Forwarding GameLevel data to controller (systems: " +
+                        opponentNetwork.getSystems().size() + ", connections: " +
+                        opponentNetwork.getWireConnections().size() + ")");
+                multiplayerGameView.getGameController().receiveOpponentNetworkData(
+                        message.getPlayerId(), opponentNetwork);
+            }
+        } else {
+            System.out.println("❌ MAINAPP: No game controller available - multiplayerGameView: " +
+                    (multiplayerGameView != null) + ", controller: " +
+                    (multiplayerGameView != null ? multiplayerGameView.getGameController() != null : "N/A"));
+        }
+    }
+
+    public void joinMultiplayerGame() {
+
+        // Ask for game ID
+        showGameIdDialog("", false);
+    }
+
+    private void showGameIdDialog(String gameId, boolean isCreating) {
+        javafx.scene.control.TextInputDialog dialog;
+
+        if (isCreating) {
+            // Show the created game ID
+            dialog = new javafx.scene.control.TextInputDialog(gameId);
+            dialog.setTitle("Game Created!");
+            dialog.setHeaderText("Your game has been created successfully!");
+            dialog.setContentText("Game ID: " + gameId + "\n\nShare this Game ID with the other player so they can join your game.\n\nClick OK to continue to the game setup.");
+            dialog.getEditor().setEditable(false);
+        } else {
+            // Ask for game ID to join
+            dialog = new javafx.scene.control.TextInputDialog();
+            dialog.setTitle("Join Game");
+            dialog.setHeaderText("Enter Game ID to join an existing game");
+            dialog.setContentText("Please enter the Game ID provided by the host:");
+        }
+
+        dialog.showAndWait().ifPresent(enteredGameId -> {
+            if (!isCreating && !enteredGameId.trim().isEmpty()) {
+                // Join the game with the entered ID
+                joinGameWithId(enteredGameId.trim());
+            }
+        });
+    }
+
+    private void joinGameWithId(String gameId) {
+
+        // Check if primaryStage is properly initialized
+        if (primaryStage == null) {
+            showErrorDialog("Multiplayer Error", "Application not properly initialized",
+                    "The primary stage is null. Please restart the application.");
+            return;
+        }
+
+        // Use the proper lobby system for validation instead of bypassing it
+        // This ensures the game ID is validated by the server before starting the game
+        showMultiplayerLobby();
+
+        // Set the game ID in the lobby and trigger the join process
+        if (multiplayerLobbyView != null) {
+            // Set the game ID field and trigger join
+            multiplayerLobbyView.setGameIdAndJoin(gameId);
+        } else {
+            showErrorDialog("Multiplayer Error", "Lobby not available",
+                    "The multiplayer lobby is not available. Please try again.");
+        }
+    }
+
+    public MultiplayerGameView getMultiplayerGameView() {
+        return multiplayerGameView;
+    }
+
 } 
