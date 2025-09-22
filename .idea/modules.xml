@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BlueprintHell.iml" filepath="$PROJECT_DIR$/BlueprintHell.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blueprint-hell.iml" filepath="$PROJECT_DIR$/blueprint-hell.iml" />
     </modules>
   </component>
 </project>
