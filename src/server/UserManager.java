@@ -177,8 +177,8 @@ public class UserManager {
                 databaseManager.updateUserData(userId, userData);
 
                 // Create score record
-                com.networksimulation.leaderboard.ScoreRecord scoreRecord =
-                        new com.networksimulation.leaderboard.ScoreRecord(
+                leaderboard.ScoreRecord scoreRecord =
+                        new leaderboard.ScoreRecord(
                                 userId, levelId, score, 0.0, "session_" + System.currentTimeMillis()
                         );
 

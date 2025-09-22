@@ -5,7 +5,10 @@ import database.entity.*;
 import model.UserProfile;
 import leaderboard.ScoreRecord;
 import model.UserData;
-
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
