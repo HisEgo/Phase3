@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class PacketReflectionManager {
-    private static final String PACKET_PACKAGE = "com.networksimulation.model";
+    private static final String PACKET_PACKAGE = "model";
     private static final String PACKET_SUFFIX = "Packet";
 
     private Map<Class<? extends Packet>, PacketType> packetTypeMap;

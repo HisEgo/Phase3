@@ -178,7 +178,7 @@ public class ServerApp {
         if (args.length > 0) {
             if ("--help".equals(args[0]) || "-h".equals(args[0])) {
                 System.out.println("Network Simulation Game - Server");
-                System.out.println("Usage: java -cp target/classes com.networksimulation.server.ServerApp [options]");
+                System.out.println("Usage: java -cp target/classes server.ServerApp [options]");
                 System.out.println("Options:");
                 System.out.println("  --help, -h    Show this help message");
                 System.out.println("  --port PORT   Set server port (default: 8081)");

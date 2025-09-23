@@ -897,7 +897,7 @@ public class MultiplayerGameController {
 
             // Create a network message to send the network data using dedicated NETWORK_DATA type
             network.NetworkMessage message = new network.NetworkMessage(
-                    network.NetworkMessage.MessageType.NETWORK_DATA,
+                    NetworkMessage.MessageType.NETWORK_DATA,
                     playerId,
                     sessionId,
                     network

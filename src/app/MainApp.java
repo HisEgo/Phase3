@@ -5,17 +5,9 @@ import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableView;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Screen;
-import leaderboard.LeaderboardManager;
-import leaderboard.LevelRecord;
-import leaderboard.PlayerRecord;
-import leaderboard.ScoreRecord;
 import view.MainMenuView;
 import view.LeaderboardView;
 import view.MultiplayerGameView;
@@ -26,37 +18,38 @@ import model.GameLevel;
 
 import java.awt.*;
 
-public class MainApp {
-    
-    public static class AppLauncher extends Application {
-        private static MainApp mainApp;
-        
-        public AppLauncher() {
-            // Default constructor required by JavaFX
-        }
-        
-        @Override
-        public void start(Stage primaryStage) {
-            mainApp = new MainApp();
-            mainApp.start(primaryStage);
-        }
-    }
-    
-    public static void launch(Class<? extends MainApp> appClass, String[] args) {
-        Application.launch(AppLauncher.class, args);
-    }
-    private Stage primaryStage;
-    private GameController gameController;
+public class MainApp extends Application {
+
+    protected Stage primaryStage;
+    protected GameController gameController;
     private GameState gameState;
     private MainMenuView mainMenuView;
+    private LeaderboardView leaderboardView;
+    private MultiplayerGameView multiplayerGameView;
+    private MultiplayerLobbyView multiplayerLobbyView;
+    private network.NetworkManager networkManager;
 
+    // Static reference for debugging
+    private static MainApp instance;
 
+    @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
+        instance = this; // Set static reference for debugging
+        System.out.println("MainApp.start() called - primaryStage set to: " + (primaryStage != null ? "NOT NULL" : "NULL"));
+        System.out.println("MainApp instance set to: " + (instance != null ? "NOT NULL" : "NULL"));
+        System.out.println("MainApp instance hashCode: " + (instance != null ? instance.hashCode() : "NULL"));
 
         try {
             initializeApplication();
+            System.out.println("After initializeApplication() - primaryStage is: " + (this.primaryStage != null ? "NOT NULL" : "NULL"));
+            System.out.println("After initializeApplication() - gameController is: " + (this.gameController != null ? "NOT NULL" : "NULL"));
+            System.out.println("After initializeApplication() - static instance is: " + (instance != null ? "NOT NULL" : "NULL"));
+            System.out.println("After initializeApplication() - static instance hashCode: " + (instance != null ? instance.hashCode() : "NULL"));
             showMainMenu();
+            System.out.println("After showMainMenu() - primaryStage is: " + (this.primaryStage != null ? "NOT NULL" : "NULL"));
+            System.out.println("After showMainMenu() - static instance is: " + (instance != null ? "NOT NULL" : "NULL"));
+            System.out.println("After showMainMenu() - static instance hashCode: " + (instance != null ? instance.hashCode() : "NULL"));
 
             // Don't minimize other applications here - do it when game starts
 
@@ -67,6 +60,9 @@ public class MainApp {
     }
 
     private void initializeApplication() {
+        // Configure primary stage FIRST to ensure it's available
+        configurePrimaryStage();
+
         // Initialize game state and controller
         gameState = new GameState();
         gameController = new GameController(gameState);
@@ -75,14 +71,16 @@ public class MainApp {
         // Initialize main menu view
         mainMenuView = new MainMenuView(this);
 
+        // Initialize other views
+        leaderboardView = new LeaderboardView(this);
+        multiplayerGameView = new MultiplayerGameView(this);
+        multiplayerLobbyView = new MultiplayerLobbyView(this);
+
         // Set up navigation callbacks AFTER views are initialized
         gameController.setupNavigationCallbacks(
                 this::returnToMainMenu,
                 this::restartCurrentLevel
         );
-
-        // Configure primary stage
-        configurePrimaryStage();
     }
 
     private void configurePrimaryStage() {
@@ -105,6 +103,13 @@ public class MainApp {
     }
 
     public void showMainMenu() {
+        // Check if primaryStage is properly initialized
+        if (primaryStage == null) {
+            showErrorDialog("Main Menu Error", "Application not properly initialized",
+                    "The primary stage is null. Please restart the application.");
+            return;
+        }
+
         // Use setRoot instead of creating a new Scene to avoid the "already set as root" error
         if (primaryStage.getScene() == null) {
             Scene scene = new Scene(mainMenuView.getRoot());
@@ -117,7 +122,7 @@ public class MainApp {
 
     public void startGame(String levelId) {
         try {
-            java.lang.System.out.println("MainApp.startGame called with levelId: " + levelId);
+            System.out.println("MainApp.startGame called with levelId: " + levelId);
 
             // Force new game start to ensure JSON loading path is used
             // Previously checked for save file and offered to continue; bypass for now
@@ -128,10 +133,29 @@ public class MainApp {
         }
     }
 
-
     public void startFreshGame(String levelId) {
         try {
-            java.lang.System.out.println("MainApp.startFreshGame called with levelId: " + levelId);
+            System.out.println("MainApp.startFreshGame called with levelId: " + levelId);
+            System.out.println("this instance: " + (this != null ? "NOT NULL" : "NULL"));
+            System.out.println("this hashCode: " + (this != null ? this.hashCode() : "NULL"));
+            System.out.println("static instance: " + (instance != null ? "NOT NULL" : "NULL"));
+            System.out.println("static hashCode: " + (instance != null ? instance.hashCode() : "NULL"));
+            System.out.println("gameController is: " + (gameController != null ? "NOT NULL" : "NULL"));
+
+            // Try to get a valid instance
+            MainApp validInstance = getValidInstance();
+            if (validInstance != null && validInstance.gameController != null) {
+                System.out.println("Using valid instance gameController as fallback");
+                gameController = validInstance.gameController;
+                primaryStage = validInstance.primaryStage;
+            }
+
+            if (gameController == null) {
+                System.out.println("ERROR: gameController is still null after fallback attempt");
+                showErrorDialog("Game Error", "Game controller not initialized",
+                        "The game controller is null. Please restart the application.");
+                return;
+            }
 
             // Game always starts fresh (no connections preserved)
 
@@ -139,10 +163,11 @@ public class MainApp {
             startNewGame(levelId);
 
         } catch (Exception e) {
+            System.out.println("Exception in startFreshGame: " + e.getMessage());
             showErrorDialog("Game Error", "Failed to start fresh game", e.getMessage());
+            e.printStackTrace();
         }
     }
-
 
 
     private void showContinuePreviousGameDialog(String newLevelId) {
@@ -191,14 +216,14 @@ public class MainApp {
             gameController.startGame();
 
             // Switch to game view
-            java.lang.System.out.println("Switching to game view...");
+            System.out.println("Switching to game view...");
             if (primaryStage.getScene() == null) {
                 Scene gameScene = new Scene(gameController.getGameView().getRoot());
                 primaryStage.setScene(gameScene);
-                java.lang.System.out.println("Created new scene with game view");
+                System.out.println("Created new scene with game view");
             } else {
                 primaryStage.getScene().setRoot(gameController.getGameView().getRoot());
-                java.lang.System.out.println("Set game view as scene root");
+                System.out.println("Set game view as scene root");
             }
 
             // Ensure the game window is fully visible and focused first
@@ -207,20 +232,16 @@ public class MainApp {
                 primaryStage.requestFocus();
                 primaryStage.toFront();
 
-                // Only minimize other applications if the feature is enabled
-                // For now, let's disable this feature to prevent issues
-                // TODO: Implement a more robust minimize feature that doesn't affect the game window
-                /*
+                // Minimize other applications with robust implementation
                 // Add a small delay to ensure the window is fully visible and focused
                 new Thread(() -> {
                     try {
                         Thread.sleep(500); // Wait 500ms for window to be fully visible
-                        Platform.runLater(this::minimizeOtherApplications);
+                        Platform.runLater(this::minimizeOtherApplicationsRobustly);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
                     }
                 }).start();
-                */
             });
 
         } catch (Exception e) {
@@ -266,6 +287,13 @@ public class MainApp {
 
     public void showLevelSelect() {
         try {
+            // Check if primaryStage is properly initialized
+            if (primaryStage == null) {
+                showErrorDialog("Level Select Error", "Application not properly initialized",
+                        "The primary stage is null. Please restart the application.");
+                return;
+            }
+
             if (primaryStage.getScene() == null) {
                 Scene levelScene = new Scene(gameController.getLevelSelectView().getRoot());
                 primaryStage.setScene(levelScene);
@@ -277,16 +305,96 @@ public class MainApp {
         }
     }
 
+    public static MainApp getInstance() {
+        return instance;
+    }
+
+    public static void setStaticInstance(MainApp newInstance) {
+        instance = newInstance;
+        System.out.println("Static instance set to: " + (instance != null ? instance.hashCode() : "NULL"));
+    }
+
+    public static MainApp getValidInstance() {
+        if (instance != null && instance.gameController != null && instance.primaryStage != null) {
+            return instance;
+        }
+
+        // If static instance is invalid, try to find a valid one
+        System.out.println("Static instance is invalid, attempting to create new instance...");
+
+        // This is a fallback - in a real scenario, we'd need to restart the application
+        return instance;
+    }
+
+    public static void startFreshGameStatic(String levelId) {
+        System.out.println("startFreshGameStatic called with levelId: " + levelId);
+
+        if (instance != null && instance.gameController != null && instance.primaryStage != null) {
+            System.out.println("Using static instance for fresh game start");
+            instance.startFreshGame(levelId);
+        } else {
+            System.out.println("ERROR: No valid static instance available for fresh game start");
+            // Show error dialog using Platform.runLater to ensure it's on the JavaFX thread
+            javafx.application.Platform.runLater(() -> {
+                if (instance != null) {
+                    instance.showErrorDialog("Game Error", "Application not properly initialized",
+                            "The application is not properly initialized. Please restart the application.");
+                }
+            });
+        }
+    }
+
     public void showSettings() {
+        System.out.println("showSettings() called - this instance: " + (this != null ? "NOT NULL" : "NULL"));
+        System.out.println("showSettings() called - static instance: " + (instance != null ? "NOT NULL" : "NULL"));
+        System.out.println("showSettings() called - primaryStage is: " + (primaryStage != null ? "NOT NULL" : "NULL"));
+        System.out.println("showSettings() called - gameController is: " + (gameController != null ? "NOT NULL" : "NULL"));
+
+        // If this instance has null primaryStage, try using the static instance
+        if (primaryStage == null && instance != null && instance.primaryStage != null) {
+            System.out.println("Using static instance primaryStage as fallback");
+            primaryStage = instance.primaryStage;
+            gameController = instance.gameController;
+        }
+
         try {
+            // Check if primaryStage is properly initialized
+            if (primaryStage == null) {
+                System.out.println("ERROR: primaryStage is null in showSettings()");
+                showErrorDialog("Settings Error", "Application not properly initialized",
+                        "The primary stage is null. Please restart the application.");
+                return;
+            }
+
+            // Check if gameController is properly initialized
+            if (gameController == null) {
+                System.out.println("ERROR: gameController is null in showSettings()");
+                showErrorDialog("Settings Error", "Game controller not initialized",
+                        "The game controller is null. Please restart the application.");
+                return;
+            }
+
+            // Check if settingsView is properly initialized
+            if (gameController.getSettingsView() == null) {
+                System.out.println("ERROR: settingsView is null in showSettings()");
+                showErrorDialog("Settings Error", "Settings view not initialized",
+                        "The settings view is null. Please restart the application.");
+                return;
+            }
+
+            System.out.println("All checks passed, attempting to show settings...");
             if (primaryStage.getScene() == null) {
                 Scene settingsScene = new Scene(gameController.getSettingsView().getRoot());
                 primaryStage.setScene(settingsScene);
+                System.out.println("Created new scene for settings");
             } else {
                 primaryStage.getScene().setRoot(gameController.getSettingsView().getRoot());
+                System.out.println("Set settings as scene root");
             }
         } catch (Exception e) {
+            System.out.println("Exception in showSettings(): " + e.getMessage());
             showErrorDialog("Settings Error", "Failed to load settings", e.getMessage());
+            e.printStackTrace(); // Add stack trace for debugging
         }
     }
 
@@ -306,24 +414,6 @@ public class MainApp {
             if (currentLevel != null) {
                 // Preserve previous-level wires per spec; clear only current-level wiring
                 gameController.restartLevelPreservingPrevious();
-                
-                // Start the game after restart
-                gameController.startGame();
-                
-                // Switch back to game view
-                try {
-                    if (primaryStage.getScene() == null) {
-                        Scene gameScene = new Scene(gameController.getGameView().getRoot());
-                        primaryStage.setScene(gameScene);
-                    } else {
-                        primaryStage.getScene().setRoot(gameController.getGameView().getRoot());
-                    }
-                    primaryStage.show();
-                    primaryStage.requestFocus();
-                    primaryStage.toFront();
-                } catch (Exception e) {
-                    System.err.println("Failed to switch to game view after restart: " + e.getMessage());
-                }
             }
         }
     }
@@ -336,25 +426,40 @@ public class MainApp {
                 // preserving prior-level wiring per spec
                 gameController.deleteSaveFile();
                 gameController.restartLevelPreservingPrevious();
-                
-                // Start the game after restart
-                gameController.startGame();
-                
-                // Switch back to game view (for pause menu restart, we're already in game view, but ensure it's focused)
-                try {
-                    if (primaryStage.getScene() == null) {
-                        Scene gameScene = new Scene(gameController.getGameView().getRoot());
-                        primaryStage.setScene(gameScene);
-                    } else {
-                        primaryStage.getScene().setRoot(gameController.getGameView().getRoot());
-                    }
-                    primaryStage.show();
-                    primaryStage.requestFocus();
-                    primaryStage.toFront();
-                } catch (Exception e) {
-                    System.err.println("Failed to switch to game view after pause menu restart: " + e.getMessage());
-                }
             }
+        }
+    }
+
+    private void minimizeOtherApplicationsRobustly() {
+        try {
+            // First, ensure our game window is focused and visible
+            Platform.runLater(() -> {
+                primaryStage.requestFocus();
+                primaryStage.toFront();
+                primaryStage.setAlwaysOnTop(true);
+            });
+
+            // Wait a bit for the focus to take effect
+            Thread.sleep(300);
+
+            String osName = System.getProperty("os.name").toLowerCase();
+
+            if (osName.contains("windows")) {
+                minimizeWindowsApplicationsRobustly();
+            } else if (osName.contains("mac")) {
+                minimizeMacApplicationsRobustly();
+            } else if (osName.contains("linux")) {
+                minimizeLinuxApplicationsRobustly();
+            }
+
+            // Reset always on top after minimizing other applications
+            Platform.runLater(() -> {
+                primaryStage.setAlwaysOnTop(false);
+            });
+
+        } catch (Exception e) {
+            // Silently handle any errors in minimizing other applications
+            System.err.println("Could not minimize other applications: " + e.getMessage());
         }
     }
 
@@ -444,6 +549,85 @@ public class MainApp {
         }
     }
 
+    private void minimizeWindowsApplicationsRobustly() {
+        try {
+            // Use Alt + Tab to cycle through windows, then minimize them individually
+            // This is more reliable than Windows + D which might affect our window
+            Robot robot = new Robot();
+            robot.setAutoDelay(100);
+
+            // Press Alt + Tab to bring up task switcher
+            robot.keyPress(java.awt.event.KeyEvent.VK_ALT);
+            robot.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            robot.delay(200);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_ALT);
+
+            // Wait for task switcher to appear
+            robot.delay(300);
+
+            // Press Escape to close task switcher without switching
+            robot.keyPress(java.awt.event.KeyEvent.VK_ESCAPE);
+            robot.delay(50);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_ESCAPE);
+
+        } catch (AWTException e) {
+            System.err.println("Failed to minimize Windows applications robustly: " + e.getMessage());
+        }
+    }
+
+    private void minimizeMacApplicationsRobustly() {
+        try {
+            // Use Command + Tab to cycle through applications, then hide them
+            Robot robot = new Robot();
+            robot.setAutoDelay(100);
+
+            // Press Command + Tab to bring up application switcher
+            robot.keyPress(java.awt.event.KeyEvent.VK_META);
+            robot.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            robot.delay(200);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_META);
+
+            // Wait for application switcher to appear
+            robot.delay(300);
+
+            // Press Escape to close application switcher without switching
+            robot.keyPress(java.awt.event.KeyEvent.VK_ESCAPE);
+            robot.delay(50);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_ESCAPE);
+
+        } catch (AWTException e) {
+            System.err.println("Failed to minimize Mac applications robustly: " + e.getMessage());
+        }
+    }
+
+    private void minimizeLinuxApplicationsRobustly() {
+        try {
+            // Use Alt + Tab to cycle through windows, then minimize them individually
+            Robot robot = new Robot();
+            robot.setAutoDelay(100);
+
+            // Press Alt + Tab to bring up window switcher
+            robot.keyPress(java.awt.event.KeyEvent.VK_ALT);
+            robot.keyPress(java.awt.event.KeyEvent.VK_TAB);
+            robot.delay(200);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_TAB);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_ALT);
+
+            // Wait for window switcher to appear
+            robot.delay(300);
+
+            // Press Escape to close window switcher without switching
+            robot.keyPress(java.awt.event.KeyEvent.VK_ESCAPE);
+            robot.delay(50);
+            robot.keyRelease(java.awt.event.KeyEvent.VK_ESCAPE);
+
+        } catch (AWTException e) {
+            System.err.println("Failed to minimize Linux applications robustly: " + e.getMessage());
+        }
+    }
+
     private void showExitConfirmation() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Exit Game");
@@ -484,10 +668,16 @@ public class MainApp {
         return primaryStage;
     }
 
+    /**
+     * Sets the network manager.
+     */
     public void setNetworkManager(network.NetworkManager networkManager) {
         this.networkManager = networkManager;
     }
 
+    /**
+     * Gets the network manager.
+     */
     public network.NetworkManager getNetworkManager() {
         return networkManager;
     }
@@ -719,7 +909,6 @@ public class MainApp {
                 "The other player has rejected your game invitation.");
     }
 
-
     private void handleGameStateUpdate(network.NetworkMessage message) {
         // Forward the message to the multiplayer game controller for proper handling
         if (multiplayerGameView != null && multiplayerGameView.getGameController() != null) {
@@ -834,8 +1023,8 @@ public class MainApp {
         // Check if we're in lobby view - forward to lobby for timer updates
         else if (multiplayerLobbyView != null) {
 
-            multiplayerLobbyView.handleLobbyMessage(new com.networksimulation.network.NetworkMessage(
-                    com.networksimulation.network.NetworkMessage.MessageType.GAME_STATE_UPDATE,
+            multiplayerLobbyView.handleLobbyMessage(new network.NetworkMessage(
+                    network.NetworkMessage.MessageType.GAME_STATE_UPDATE,
                     "SERVER",
                     "LOBBY",
                     gameStateData
@@ -846,6 +1035,7 @@ public class MainApp {
             }
         }
     }
+
 
     private void handleNetworkData(network.NetworkMessage message) {
         System.out.println("📨 MAINAPP: Received NETWORK_DATA from " + message.getPlayerId());
@@ -895,6 +1085,7 @@ public class MainApp {
         showGameIdDialog("", false);
     }
 
+
     private void showGameIdDialog(String gameId, boolean isCreating) {
         javafx.scene.control.TextInputDialog dialog;
 
@@ -921,6 +1112,7 @@ public class MainApp {
         });
     }
 
+
     private void joinGameWithId(String gameId) {
 
         // Check if primaryStage is properly initialized
@@ -944,8 +1136,17 @@ public class MainApp {
         }
     }
 
+
     public MultiplayerGameView getMultiplayerGameView() {
         return multiplayerGameView;
     }
 
-} 
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+
+
+

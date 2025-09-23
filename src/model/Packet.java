@@ -31,6 +31,8 @@ public abstract class Packet {
     private boolean coinAwardPending;
     // Marks that this packet has been processed by a reference system to prevent duplication
     private boolean processedByReferenceSystem;
+    // Owner player ID for multiplayer games
+    private String ownerId;
 
     public Packet() {
         this.id = java.util.UUID.randomUUID().toString();
@@ -400,6 +402,15 @@ public abstract class Packet {
     public void realignCenter() {
         // This method will be overridden by specific packet types
         // to implement their own realignment logic
+    }
+
+    // Owner ID methods for multiplayer games
+    public String getOwnerId() {
+        return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     @Override

@@ -242,7 +242,7 @@ public class MultiplayerSession {
                     double newX = packet.getCurrentPosition().getX() + packet.getMovementVector().getX() * deltaSeconds * speedFactor;
                     double newY = packet.getCurrentPosition().getY() + packet.getMovementVector().getY() * deltaSeconds * speedFactor;
 
-                    packet.setCurrentPosition(model.Point2D(newX, newY));
+                    packet.setCurrentPosition(new model.Point2D(newX, newY));
                 }
             }
         }
@@ -332,7 +332,7 @@ public class MultiplayerSession {
                 : (Math.random() < 0.5 ? player1Id : player2Id);
 
         // Create a simple random packet near the opponent side heading inward
-        model.PacketType[] candidateTypes = model.PacketType[] {
+        model.PacketType[] candidateTypes = {
                 model.PacketType.SMALL_MESSENGER,
                 model.PacketType.PROTECTED,
                 model.PacketType.BULK_SMALL,

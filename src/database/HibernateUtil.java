@@ -25,15 +25,15 @@ public class HibernateUtil {
                 MetadataSources sources = new MetadataSources(registry);
 
                 // Add entity classes
-                sources.addAnnotatedClass(com.networksimulation.database.entity.UserProfileEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.ScoreRecordEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.LevelRecordEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.PlayerRecordEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.MultiplayerSessionEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.GameSessionEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.SystemEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.WireConnectionEntity.class);
-                sources.addAnnotatedClass(com.networksimulation.database.entity.PortEntity.class);
+                sources.addAnnotatedClass(database.entity.UserProfileEntity.class);
+                sources.addAnnotatedClass(database.entity.ScoreRecordEntity.class);
+                sources.addAnnotatedClass(database.entity.LevelRecordEntity.class);
+                sources.addAnnotatedClass(database.entity.PlayerRecordEntity.class);
+                sources.addAnnotatedClass(database.entity.MultiplayerSessionEntity.class);
+                sources.addAnnotatedClass(database.entity.GameSessionEntity.class);
+                sources.addAnnotatedClass(database.entity.SystemEntity.class);
+                sources.addAnnotatedClass(database.entity.WireConnectionEntity.class);
+                sources.addAnnotatedClass(database.entity.PortEntity.class);
 
                 // Create Metadata
                 Metadata metadata = sources.getMetadataBuilder().build();
@@ -62,15 +62,15 @@ public class HibernateUtil {
             configuration.configure("hibernate.cfg.xml");
 
             // Add entity classes
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.UserProfileEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.ScoreRecordEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.LevelRecordEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.PlayerRecordEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.MultiplayerSessionEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.GameSessionEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.SystemEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.WireConnectionEntity.class);
-            configuration.addAnnotatedClass(com.networksimulation.database.entity.PortEntity.class);
+            configuration.addAnnotatedClass(database.entity.UserProfileEntity.class);
+            configuration.addAnnotatedClass(database.entity.ScoreRecordEntity.class);
+            configuration.addAnnotatedClass(database.entity.LevelRecordEntity.class);
+            configuration.addAnnotatedClass(database.entity.PlayerRecordEntity.class);
+            configuration.addAnnotatedClass(database.entity.MultiplayerSessionEntity.class);
+            configuration.addAnnotatedClass(database.entity.GameSessionEntity.class);
+            configuration.addAnnotatedClass(database.entity.SystemEntity.class);
+            configuration.addAnnotatedClass(database.entity.WireConnectionEntity.class);
+            configuration.addAnnotatedClass(database.entity.PortEntity.class);
 
             return configuration.buildSessionFactory();
 

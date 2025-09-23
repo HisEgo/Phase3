@@ -24,6 +24,8 @@ public class WireConnection {
     private static final int MAX_WIRE_CAPACITY = 1;
     // Phase 1 spec: packet loss if packet goes off the wire path
     private static final double DEFAULT_OFF_WIRE_LOSS_THRESHOLD = 20.0; // pixels
+    // Owner player ID for multiplayer games
+    private String ownerPlayerId;
 
 
     public WireConnection() {
@@ -1359,6 +1361,15 @@ public class WireConnection {
                 this.wireLength = sourcePos.distanceTo(destPos);
             }
         }
+    }
+
+    // Owner player ID methods for multiplayer games
+    public String getOwnerPlayerId() {
+        return ownerPlayerId;
+    }
+
+    public void setOwnerPlayerId(String ownerPlayerId) {
+        this.ownerPlayerId = ownerPlayerId;
     }
 
 }

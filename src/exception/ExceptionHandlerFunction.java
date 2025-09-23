@@ -25,8 +25,8 @@ public class ExceptionHandlerFunction {
 
     private void discoverExceptionHandlers() {
         try {
-            // Get all classes in the com.networksimulation package
-            String packageName = "com.networksimulation";
+            // Get all classes in the current package
+            String packageName = "exception";
             ClassLoader classLoader = getClass().getClassLoader();
 
             // Scan for classes with exception handlers
@@ -57,13 +57,13 @@ public class ExceptionHandlerFunction {
     private void scanKnownClassesForExceptionHandlers() {
         // List of known classes that might have exception handlers
         String[] knownClasses = {
-                "com.networksimulation.server.GameServer",
-                "com.networksimulation.server.ClientHandler",
-                "com.networksimulation.server.MultiplayerSession",
-                "com.networksimulation.multiplayer.MultiplayerGameController",
-                "com.networksimulation.network.NetworkManager",
-                "com.networksimulation.leaderboard.LeaderboardManager",
-                "com.networksimulation.security.DataIntegrityValidator"
+                "server.GameServer",
+                "server.ClientHandler",
+                "server.MultiplayerSession",
+                "multiplayer.MultiplayerGameController",
+                "network.NetworkManager",
+                "leaderboard.LeaderboardManager",
+                "security.DataIntegrityValidator"
         };
 
         for (String className : knownClasses) {

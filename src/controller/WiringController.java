@@ -9,6 +9,10 @@ public class WiringController {
     }
 
     public boolean createWireConnection(Port sourcePort, Port destinationPort, GameState gameState) {
+        return createWireConnection(sourcePort, destinationPort, gameState, null);
+    }
+
+    public boolean createWireConnection(Port sourcePort, Port destinationPort, GameState gameState, String ownerPlayerId) {
 
         // Check if connection is valid
         if (!isValidConnection(sourcePort, destinationPort, gameState)) {
@@ -27,6 +31,11 @@ public class WiringController {
 
         // Create wire connection
         WireConnection connection = new WireConnection(sourcePort, destinationPort, wireLength);
+        
+        // Set owner player ID if provided
+        if (ownerPlayerId != null) {
+            connection.setOwnerPlayerId(ownerPlayerId);
+        }
 
         gameState.addWireConnection(connection);
 
