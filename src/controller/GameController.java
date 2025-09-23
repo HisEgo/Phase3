@@ -564,6 +564,7 @@ public class GameController {
     public void loadLevel(String levelId) {
         try {
             GameLevel level = createLevel(levelId);
+            java.lang.System.out.println("[GameController] Created level " + levelId + " systems=" + (level != null && level.getSystems()!=null ? level.getSystems().size() : -1));
             // Preserve coins from previous levels - don't reset them, but ensure minimum of 10
             int currentCoins = gameState.getCoins();
             if (currentCoins == 0) {
@@ -590,6 +591,9 @@ public class GameController {
             updateWireConnectionPortReferences(level);
             restorePortConnectionsFromWires(level);
             rebindPacketInjectionSources(level);
+
+            java.lang.System.out.println("[GameController] After bind/rebind, systems=" + (level.getSystems()!=null ? level.getSystems().size() : -1)
+                    + ", wires=" + (level.getWireConnections()!=null ? level.getWireConnections().size() : -1));
 
             // Set the level in the game view
             gameView.setLevel(level);

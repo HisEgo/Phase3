@@ -11,6 +11,7 @@ import javafx.scene.text.FontWeight;
 import controller.GameController;
 import model.*;
 
+import java.lang.System;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -69,6 +70,16 @@ public class GameView {
 
     private void initializeUI() {
         root = new Pane();
+        // Ensure the view has a reasonable preferred size so it doesn't collapse to 0x0
+        root.setPrefSize(1000, 700);
+
+        // When attached to a Scene, bind our preferred size to the Scene size so we always fill the window
+        root.sceneProperty().addListener((obs, oldScene, newScene) -> {
+            if (newScene != null) {
+                root.prefWidthProperty().bind(newScene.widthProperty());
+                root.prefHeightProperty().bind(newScene.heightProperty());
+            }
+        });
 
         // Make canvas size dynamic based on available space
         canvas = new Canvas();
@@ -466,6 +477,13 @@ public class GameView {
     }
 
     public void update() {
+        // If level not set on this view instance, try to pull it from controller's game state
+        if (currentLevel == null && gameController != null && gameController.getGameState() != null) {
+            GameLevel stateLevel = gameController.getGameState().getCurrentLevel();
+            if (stateLevel != null) {
+                this.currentLevel = stateLevel;
+            }
+        }
         if (currentLevel == null) return;
 
         // Don't update canvas if shop is visible
@@ -556,6 +574,11 @@ public class GameView {
             return;
         }
 
+        // Avoid invalid calculations when canvas has not been laid out yet
+        if (canvas.getWidth() <= 1 || canvas.getHeight() <= 1) {
+            return;
+        }
+
         // Calculate bounds of all systems
         double minX = Double.MAX_VALUE;
         double minY = Double.MAX_VALUE;
@@ -577,8 +600,8 @@ public class GameView {
         maxY += SCALE_MARGIN;
 
         // Calculate required dimensions
-        double levelWidth = maxX - minX;
-        double levelHeight = maxY - minY;
+        double levelWidth = Math.max(1.0, maxX - minX);
+        double levelHeight = Math.max(1.0, maxY - minY);
 
         // Calculate scale to fit in canvas
         double scaleX = (canvas.getWidth() - 100) / levelWidth; // Leave 100px margin
@@ -1760,6 +1783,9 @@ public class GameView {
 
     public void setLevel(GameLevel level) {
         this.currentLevel = level;
+        try {
+            System.out.println("[GameView] setLevel -> systems=" + (level != null && level.getSystems()!=null ? level.getSystems().size() : -1));
+        } catch (Exception ignore) {}
 
         // Reset viewport for new level
         if (autoScaleEnabled) {

@@ -116,14 +116,29 @@ public class ClientApp extends Application {
             // Load the level using the available method
             gameController.loadLevel(level.getLevelId());
 
-            // Create and show the game view
-            view.GameView gameView = new view.GameView(gameController);
+            // Use the existing GameView managed by GameController (includes HUD/overlays)
+            view.GameView controllerGameView = gameController.getGameView();
+            System.out.println("[ClientApp] startGame -> levelId=" + level.getLevelId());
 
-            Scene scene = new Scene(gameView.getRoot());
-            primaryStage.setScene(scene);
+            if (primaryStage.getScene() == null) {
+                Scene scene = new Scene(controllerGameView.getRoot());
+                primaryStage.setScene(scene);
+            } else {
+                primaryStage.getScene().setRoot(controllerGameView.getRoot());
+            }
             primaryStage.show();
 
-            // Start the game
+            // Ensure viewport is valid after layout
+            Platform.runLater(() -> {
+                try {
+                    System.out.println("[ClientApp] scene size: " + primaryStage.getScene().getWidth() + "x" + primaryStage.getScene().getHeight());
+                    controllerGameView.resetViewport();
+                    controllerGameView.requestFocus();
+                    System.out.println("[ClientApp] systems after load: " + (gameController.getGameState().getCurrentLevel()!=null ? gameController.getGameState().getCurrentLevel().getSystems().size() : -1));
+                } catch (Exception ignore) {}
+            });
+
+            // Start the game loop
             gameController.startGame();
 
         } catch (Exception e) {
@@ -547,6 +562,17 @@ public class ClientApp extends Application {
                 clientApp.startGame(level);
             } catch (Exception e) {
                 System.err.println("Error starting game: " + e.getMessage());
+            }
+        }
+
+        @Override
+        public void startFreshGame(String levelId) {
+            try {
+                model.GameLevel level = new model.GameLevel();
+                level.setLevelId(levelId);
+                clientApp.startGame(level);
+            } catch (Exception e) {
+                System.err.println("Error starting fresh game: " + e.getMessage());
             }
         }
 

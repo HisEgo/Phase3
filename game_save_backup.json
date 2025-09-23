@@ -1,0 +1,2501 @@
+{
+  "version" : "2.0",
+  "timestamp" : 1758612405754,
+  "gameState" : {
+    "remainingWireLength" : 2367.279041057861,
+    "temporalProgress" : 5.002097900000004,
+    "packetLoss" : 0.0,
+    "coins" : 16,
+    "activePackets" : [ {
+      "size" : 3,
+      "noiseLevel" : 0.0,
+      "currentPosition" : {
+        "x" : 405.0501201138236,
+        "y" : 176.09575118793342
+      },
+      "movementVector" : {
+        "x" : 31.90836729994182,
+        "y" : -110.80865697848513
+      },
+      "id" : "e20222f0-0948-4778-9319-def115177f7a",
+      "packetType" : "TRIANGLE_MESSENGER",
+      "originalPacketType" : null,
+      "travelTime" : 0.0,
+      "pathProgress" : 0.9027231328913929,
+      "currentWire" : {
+        "id" : "dc5cb95e-cc45-40b9-ae97-703705a59c42",
+        "sourcePort" : {
+          "@id" : "8b190363-df5d-464e-b90b-280ad4cf2893",
+          "shape" : "TRIANGLE",
+          "parentSystem" : {
+            "type" : "ReferenceSystem",
+            "id" : "fb89f1d2-6984-4550-b126-923becde0ca1",
+            "position" : {
+              "x" : 100.0,
+              "y" : 300.0
+            },
+            "inputPorts" : [ ],
+            "outputPorts" : [ {
+              "@id" : "125660bb-9acd-4f52-8cbe-770b166a9bfe",
+              "shape" : "SQUARE",
+              "parentSystem" : "fb89f1d2-6984-4550-b126-923becde0ca1",
+              "position" : {
+                "x" : 140.0,
+                "y" : 284.0
+              },
+              "currentPacket" : null,
+              "relativeOffset" : {
+                "x" : 0.0,
+                "y" : 0.0
+              },
+              "empty" : true,
+              "input" : false,
+              "connected" : true,
+              "connectedSystem" : {
+                "type" : "VPNSystem",
+                "id" : "12cd03d0-9884-4449-9953-b79652062691",
+                "position" : {
+                  "x" : 280.0,
+                  "y" : 200.0
+                },
+                "inputPorts" : [ {
+                  "@id" : "e11bdf3a-c988-4bf7-a5d5-757f026d0a17",
+                  "shape" : "SQUARE",
+                  "parentSystem" : "12cd03d0-9884-4449-9953-b79652062691",
+                  "position" : {
+                    "x" : 240.0,
+                    "y" : 200.0
+                  },
+                  "currentPacket" : null,
+                  "relativeOffset" : {
+                    "x" : 0.0,
+                    "y" : 0.0
+                  },
+                  "empty" : true,
+                  "input" : true,
+                  "connected" : true,
+                  "connectedSystem" : "fb89f1d2-6984-4550-b126-923becde0ca1"
+                } ],
+                "outputPorts" : [ {
+                  "@id" : "c0b7b561-d137-44d1-ad33-21b43c208a57",
+                  "shape" : "TRIANGLE",
+                  "parentSystem" : "12cd03d0-9884-4449-9953-b79652062691",
+                  "position" : {
+                    "x" : 320.0,
+                    "y" : 200.0
+                  },
+                  "currentPacket" : null,
+                  "relativeOffset" : {
+                    "x" : 0.0,
+                    "y" : 0.0
+                  },
+                  "empty" : true,
+                  "input" : false,
+                  "connected" : true,
+                  "connectedSystem" : {
+                    "type" : "NormalSystem",
+                    "id" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                    "position" : {
+                      "x" : 450.0,
+                      "y" : 150.0
+                    },
+                    "inputPorts" : [ {
+                      "@id" : "0c28d696-3c1b-4029-a5a8-3a49a4123660",
+                      "shape" : "TRIANGLE",
+                      "parentSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                      "position" : {
+                        "x" : 410.0,
+                        "y" : 142.0
+                      },
+                      "currentPacket" : null,
+                      "relativeOffset" : {
+                        "x" : 0.0,
+                        "y" : 0.0
+                      },
+                      "empty" : true,
+                      "input" : true,
+                      "connected" : true,
+                      "connectedSystem" : "fb89f1d2-6984-4550-b126-923becde0ca1"
+                    }, {
+                      "@id" : "26187681-ef3e-4d25-8b28-91b7311d5f99",
+                      "shape" : "SQUARE",
+                      "parentSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                      "position" : {
+                        "x" : 410.0,
+                        "y" : 158.0
+                      },
+                      "currentPacket" : null,
+                      "relativeOffset" : {
+                        "x" : 0.0,
+                        "y" : 0.0
+                      },
+                      "empty" : true,
+                      "input" : true,
+                      "connected" : true,
+                      "connectedSystem" : "12cd03d0-9884-4449-9953-b79652062691"
+                    } ],
+                    "outputPorts" : [ {
+                      "@id" : "b2a1e574-55de-4c6d-8b80-ccdd64e5326f",
+                      "shape" : "HEXAGON",
+                      "parentSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                      "position" : {
+                        "x" : 490.0,
+                        "y" : 134.0
+                      },
+                      "currentPacket" : null,
+                      "relativeOffset" : {
+                        "x" : 0.0,
+                        "y" : 0.0
+                      },
+                      "empty" : true,
+                      "input" : false,
+                      "connected" : true,
+                      "connectedSystem" : {
+                        "type" : "ReferenceSystem",
+                        "id" : "b4723d32-a691-46b9-bc6c-d67b01a2f473",
+                        "position" : {
+                          "x" : 750.0,
+                          "y" : 275.0
+                        },
+                        "inputPorts" : [ {
+                          "@id" : "65f48771-3ea9-455c-af01-91b3913b3ae8",
+                          "shape" : "HEXAGON",
+                          "parentSystem" : "b4723d32-a691-46b9-bc6c-d67b01a2f473",
+                          "position" : {
+                            "x" : 710.0,
+                            "y" : 267.0
+                          },
+                          "currentPacket" : null,
+                          "relativeOffset" : {
+                            "x" : 0.0,
+                            "y" : 0.0
+                          },
+                          "empty" : true,
+                          "input" : true,
+                          "connected" : true,
+                          "connectedSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf"
+                        }, {
+                          "@id" : "418de96c-7812-4b44-9450-2705ba3b1951",
+                          "shape" : "SQUARE",
+                          "parentSystem" : "b4723d32-a691-46b9-bc6c-d67b01a2f473",
+                          "position" : {
+                            "x" : 710.0,
+                            "y" : 283.0
+                          },
+                          "currentPacket" : null,
+                          "relativeOffset" : {
+                            "x" : 0.0,
+                            "y" : 0.0
+                          },
+                          "empty" : true,
+                          "input" : true,
+                          "connected" : true,
+                          "connectedSystem" : {
+                            "type" : "NormalSystem",
+                            "id" : "30537efd-fc06-4d79-b961-0c8a39669778",
+                            "position" : {
+                              "x" : 600.0,
+                              "y" : 350.0
+                            },
+                            "inputPorts" : [ {
+                              "@id" : "34c28951-b598-46e1-b998-fc30dd1830b1",
+                              "shape" : "HEXAGON",
+                              "parentSystem" : "30537efd-fc06-4d79-b961-0c8a39669778",
+                              "position" : {
+                                "x" : 560.0,
+                                "y" : 334.0
+                              },
+                              "currentPacket" : null,
+                              "relativeOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0
+                              },
+                              "empty" : true,
+                              "input" : true,
+                              "connected" : true,
+                              "connectedSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf"
+                            }, {
+                              "@id" : "10ce0c7a-377d-4861-95fa-2bb26e842455",
+                              "shape" : "SQUARE",
+                              "parentSystem" : "30537efd-fc06-4d79-b961-0c8a39669778",
+                              "position" : {
+                                "x" : 560.0,
+                                "y" : 350.0
+                              },
+                              "currentPacket" : null,
+                              "relativeOffset" : {
+                                "x" : 0.0,
+                                "y" : 0.0
+                              },
+                              "empty" : true,
+                              "input" : true,
+                              "connected" : true,
+                              "connectedSystem" : {
+                                "type" : "SaboteurSystem",
+                                "id" : "86beeab5-6482-4d37-8355-48b01c44ba03",
+                                "position" : {
+                                  "x" : 450.0,
+                                  "y" : 400.0
+                                },
+                                "inputPorts" : [ {
+                                  "@id" : "23947ab7-8faf-400c-8a41-03aa99e8d5cb",
+                                  "shape" : "TRIANGLE",
+                                  "parentSystem" : "86beeab5-6482-4d37-8355-48b01c44ba03",
+                                  "position" : {
+                                    "x" : 410.0,
+                                    "y" : 400.0
+                                  },
+                                  "currentPacket" : null,
+                                  "relativeOffset" : {
+                                    "x" : 0.0,
+                                    "y" : 0.0
+                                  },
+                                  "empty" : true,
+                                  "input" : true,
+                                  "connected" : true,
+                                  "connectedSystem" : {
+                                    "type" : "SpySystem",
+                                    "id" : "f4354387-d5ac-4bc2-b110-cbee890300ef",
+                                    "position" : {
+                                      "x" : 600.0,
+                                      "y" : 200.0
+                                    },
+                                    "inputPorts" : [ {
+                                      "@id" : "565881db-eb96-44df-8291-dd469e359e50",
+                                      "shape" : "HEXAGON",
+                                      "parentSystem" : "f4354387-d5ac-4bc2-b110-cbee890300ef",
+                                      "position" : {
+                                        "x" : 560.0,
+                                        "y" : 200.0
+                                      },
+                                      "currentPacket" : null,
+                                      "relativeOffset" : {
+                                        "x" : 0.0,
+                                        "y" : 0.0
+                                      },
+                                      "empty" : true,
+                                      "input" : true,
+                                      "connected" : true,
+                                      "connectedSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf"
+                                    } ],
+                                    "outputPorts" : [ {
+                                      "@id" : "1aa3c400-0569-475c-9576-8dfc616c4551",
+                                      "shape" : "SQUARE",
+                                      "parentSystem" : "f4354387-d5ac-4bc2-b110-cbee890300ef",
+                                      "position" : {
+                                        "x" : 640.0,
+                                        "y" : 200.0
+                                      },
+                                      "currentPacket" : null,
+                                      "relativeOffset" : {
+                                        "x" : 0.0,
+                                        "y" : 0.0
+                                      },
+                                      "empty" : true,
+                                      "input" : false,
+                                      "connected" : true,
+                                      "connectedSystem" : "86beeab5-6482-4d37-8355-48b01c44ba03"
+                                    } ],
+                                    "storage" : [ ],
+                                    "systemType" : "SPY",
+                                    "deactivationTimer" : 0.0,
+                                    "maxDeactivationTime" : 10.0,
+                                    "indicatorVisible" : true,
+                                    "parentLevel" : {
+                                      "levelId" : "level4",
+                                      "name" : "Bulk Packets",
+                                      "description" : null,
+                                      "initialWireLength" : 4500.0,
+                                      "levelDuration" : 90.0,
+                                      "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", {
+                                        "type" : "SpySystem",
+                                        "id" : "c1cf54c2-6213-4316-b601-effce42da77f",
+                                        "position" : {
+                                          "x" : 280.0,
+                                          "y" : 350.0
+                                        },
+                                        "inputPorts" : [ {
+                                          "@id" : "475faa5a-ce0f-4a6c-86d4-c87d63cc1f92",
+                                          "shape" : "TRIANGLE",
+                                          "parentSystem" : "c1cf54c2-6213-4316-b601-effce42da77f",
+                                          "position" : {
+                                            "x" : 240.0,
+                                            "y" : 350.0
+                                          },
+                                          "currentPacket" : null,
+                                          "relativeOffset" : {
+                                            "x" : 0.0,
+                                            "y" : 0.0
+                                          },
+                                          "empty" : true,
+                                          "input" : true,
+                                          "connected" : true,
+                                          "connectedSystem" : "fb89f1d2-6984-4550-b126-923becde0ca1"
+                                        } ],
+                                        "outputPorts" : [ {
+                                          "@id" : "b3460d14-f913-4567-995e-9996f42cce9e",
+                                          "shape" : "HEXAGON",
+                                          "parentSystem" : "c1cf54c2-6213-4316-b601-effce42da77f",
+                                          "position" : {
+                                            "x" : 320.0,
+                                            "y" : 350.0
+                                          },
+                                          "currentPacket" : null,
+                                          "relativeOffset" : {
+                                            "x" : 0.0,
+                                            "y" : 0.0
+                                          },
+                                          "empty" : true,
+                                          "input" : false,
+                                          "connected" : true,
+                                          "connectedSystem" : "30537efd-fc06-4d79-b961-0c8a39669778"
+                                        } ],
+                                        "storage" : [ ],
+                                        "systemType" : "SPY",
+                                        "deactivationTimer" : 0.0,
+                                        "maxDeactivationTime" : 10.0,
+                                        "indicatorVisible" : true,
+                                        "parentLevel" : {
+                                          "levelId" : "level4",
+                                          "name" : "Bulk Packets",
+                                          "description" : null,
+                                          "initialWireLength" : 4500.0,
+                                          "levelDuration" : 90.0,
+                                          "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                                          "wireConnections" : [ {
+                                            "id" : "a92f7f59-826b-476d-a401-321e240d2a05",
+                                            "sourcePort" : "125660bb-9acd-4f52-8cbe-770b166a9bfe",
+                                            "destinationPort" : "e11bdf3a-c988-4bf7-a5d5-757f026d0a17",
+                                            "wireLength" : 130.59862173851607,
+                                            "consumedLength" : 130.59862173851607,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 1,
+                                            "packetsOnWire" : [ {
+                                              "size" : 8,
+                                              "noiseLevel" : 0.0,
+                                              "currentPosition" : {
+                                                "x" : 174.81898071955632,
+                                                "y" : 254.7520561955727
+                                              },
+                                              "movementVector" : {
+                                                "x" : 34.14885196054648,
+                                                "y" : -28.68503564685918
+                                              },
+                                              "id" : "7c3416d5-bc1b-4876-956e-6b4efb6d48a9",
+                                              "packetType" : "BULK_SMALL",
+                                              "originalPacketType" : null,
+                                              "travelTime" : 0.0,
+                                              "pathProgress" : 0.34818980719556325,
+                                              "currentWire" : "a92f7f59-826b-476d-a401-321e240d2a05",
+                                              "baseSpeed" : 44.59793000000001,
+                                              "maxTravelTime" : 30.0,
+                                              "retryDestination" : false,
+                                              "sourcePosition" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "destinationPosition" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "bulkPacketId" : null,
+                                              "bulkPacketColor" : 0,
+                                              "ownerId" : null,
+                                              "wirePassageCount" : 0,
+                                              "active" : true,
+                                              "returningToSource" : false,
+                                              "reversing" : false
+                                            } ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 100.0,
+                                              "y" : -84.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : true,
+                                            "totalLength" : 130.59862173851607,
+                                            "pathPoints" : [ {
+                                              "x" : 140.0,
+                                              "y" : 284.0
+                                            }, {
+                                              "x" : 240.0,
+                                              "y" : 200.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 130.59862173851607
+                                          }, "dc5cb95e-cc45-40b9-ae97-703705a59c42", {
+                                            "id" : "bcda5af9-17ea-4924-96c2-0f67eaeacc2e",
+                                            "sourcePort" : {
+                                              "@id" : "aea492a9-743e-4c60-b34e-b7b787ea61e6",
+                                              "shape" : "HEXAGON",
+                                              "parentSystem" : "fb89f1d2-6984-4550-b126-923becde0ca1",
+                                              "position" : {
+                                                "x" : 140.0,
+                                                "y" : 316.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : false,
+                                              "connected" : true,
+                                              "connectedSystem" : "c1cf54c2-6213-4316-b601-effce42da77f"
+                                            },
+                                            "destinationPort" : "475faa5a-ce0f-4a6c-86d4-c87d63cc1f92",
+                                            "wireLength" : 105.62196741208714,
+                                            "consumedLength" : 105.62196741208714,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 100.0,
+                                              "y" : 34.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 105.62196741208714,
+                                            "pathPoints" : [ {
+                                              "x" : 140.0,
+                                              "y" : 316.0
+                                            }, {
+                                              "x" : 240.0,
+                                              "y" : 350.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 105.62196741208714
+                                          }, {
+                                            "id" : "153a82a9-15f3-486a-951d-4fa1a6b4fb8c",
+                                            "sourcePort" : "c0b7b561-d137-44d1-ad33-21b43c208a57",
+                                            "destinationPort" : "26187681-ef3e-4d25-8b28-91b7311d5f99",
+                                            "wireLength" : 99.31767214348109,
+                                            "consumedLength" : 99.31767214348109,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 90.0,
+                                              "y" : -42.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 99.31767214348109,
+                                            "pathPoints" : [ {
+                                              "x" : 320.0,
+                                              "y" : 200.0
+                                            }, {
+                                              "x" : 410.0,
+                                              "y" : 158.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 99.31767214348109
+                                          }, {
+                                            "id" : "e2200179-02d2-485e-8187-ebf9f3924abe",
+                                            "sourcePort" : {
+                                              "@id" : "2e61be6b-207a-4a33-a198-631a169250de",
+                                              "shape" : "SQUARE",
+                                              "parentSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                                              "position" : {
+                                                "x" : 490.0,
+                                                "y" : 166.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : false,
+                                              "connected" : true,
+                                              "connectedSystem" : "f4354387-d5ac-4bc2-b110-cbee890300ef"
+                                            },
+                                            "destinationPort" : "565881db-eb96-44df-8291-dd469e359e50",
+                                            "wireLength" : 77.82030583337487,
+                                            "consumedLength" : 77.82030583337487,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 70.0,
+                                              "y" : 34.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 77.82030583337487,
+                                            "pathPoints" : [ {
+                                              "x" : 490.0,
+                                              "y" : 166.0
+                                            }, {
+                                              "x" : 560.0,
+                                              "y" : 200.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 77.82030583337487
+                                          }, {
+                                            "id" : "66b03b00-34a4-4635-8caa-302dfa5c8e67",
+                                            "sourcePort" : "1aa3c400-0569-475c-9576-8dfc616c4551",
+                                            "destinationPort" : "23947ab7-8faf-400c-8a41-03aa99e8d5cb",
+                                            "wireLength" : 304.7950130825634,
+                                            "consumedLength" : 304.7950130825634,
+                                            "bends" : [ {
+                                              "position" : {
+                                                "x" : 650.208913649025,
+                                                "y" : 281.68523676880216
+                                              },
+                                              "maxMoveRadius" : 50.0,
+                                              "movable" : true
+                                            }, {
+                                              "position" : {
+                                                "x" : 417.0612813370473,
+                                                "y" : 335.16713091922
+                                              },
+                                              "maxMoveRadius" : 50.0,
+                                              "movable" : true
+                                            } ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : -230.0,
+                                              "y" : 200.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 408.7886478971316,
+                                            "pathPoints" : [ {
+                                              "x" : 640.0,
+                                              "y" : 200.0
+                                            }, {
+                                              "x" : 640.0,
+                                              "y" : 200.0
+                                            }, {
+                                              "x" : 638.2634112140678,
+                                              "y" : 204.1675667481477
+                                            }, {
+                                              "x" : 636.749095181248,
+                                              "y" : 208.30735413942736
+                                            }, {
+                                              "x" : 635.4570519015407,
+                                              "y" : 212.41936217383892
+                                            }, {
+                                              "x" : 634.3872813749455,
+                                              "y" : 216.50359085138228
+                                            }, {
+                                              "x" : 633.5397836014627,
+                                              "y" : 220.56004017205765
+                                            }, {
+                                              "x" : 632.9145585810926,
+                                              "y" : 224.58871013586491
+                                            }, {
+                                              "x" : 632.5116063138348,
+                                              "y" : 228.5896007428041
+                                            }, {
+                                              "x" : 632.3309267996891,
+                                              "y" : 232.5627119928751
+                                            }, {
+                                              "x" : 632.3725200386559,
+                                              "y" : 236.50804388607807
+                                            }, {
+                                              "x" : 632.6363860307354,
+                                              "y" : 240.42559642241292
+                                            }, {
+                                              "x" : 633.1225247759271,
+                                              "y" : 244.3153696018797
+                                            }, {
+                                              "x" : 633.830936274231,
+                                              "y" : 248.17736342447841
+                                            }, {
+                                              "x" : 634.7616205256475,
+                                              "y" : 252.01157789020897
+                                            }, {
+                                              "x" : 635.9145775301764,
+                                              "y" : 255.81801299907147
+                                            }, {
+                                              "x" : 637.2898072878176,
+                                              "y" : 259.59666875106586
+                                            }, {
+                                              "x" : 638.8873097985711,
+                                              "y" : 263.34754514619215
+                                            }, {
+                                              "x" : 640.7070850624372,
+                                              "y" : 267.0706421844503
+                                            }, {
+                                              "x" : 642.7491330794156,
+                                              "y" : 270.76595986584044
+                                            }, {
+                                              "x" : 645.0134538495063,
+                                              "y" : 274.43349819036246
+                                            }, {
+                                              "x" : 647.5000473727094,
+                                              "y" : 278.07325715801636
+                                            }, {
+                                              "x" : 650.208913649025,
+                                              "y" : 281.68523676880216
+                                            }, {
+                                              "x" : 650.208913649025,
+                                              "y" : 281.68523676880216
+                                            }, {
+                                              "x" : 638.7375402162066,
+                                              "y" : 278.1928640257804
+                                            }, {
+                                              "x" : 627.3874867701187,
+                                              "y" : 275.2293705999125
+                                            }, {
+                                              "x" : 616.1587533107613,
+                                              "y" : 272.7947564911984
+                                            }, {
+                                              "x" : 605.0513398381346,
+                                              "y" : 270.8890216996382
+                                            }, {
+                                              "x" : 594.0652463522388,
+                                              "y" : 269.5121662252318
+                                            }, {
+                                              "x" : 583.2004728530732,
+                                              "y" : 268.6641900679791
+                                            }, {
+                                              "x" : 572.4570193406385,
+                                              "y" : 268.3450932278804
+                                            }, {
+                                              "x" : 561.8348858149343,
+                                              "y" : 268.5548757049354
+                                            }, {
+                                              "x" : 551.3340722759608,
+                                              "y" : 269.2935374991443
+                                            }, {
+                                              "x" : 540.954578723718,
+                                              "y" : 270.561078610507
+                                            }, {
+                                              "x" : 530.6964051582056,
+                                              "y" : 272.3574990390235
+                                            }, {
+                                              "x" : 520.559551579424,
+                                              "y" : 274.68279878469383
+                                            }, {
+                                              "x" : 510.544017987373,
+                                              "y" : 277.536977847518
+                                            }, {
+                                              "x" : 500.6498043820526,
+                                              "y" : 280.920036227496
+                                            }, {
+                                              "x" : 490.87691076346283,
+                                              "y" : 284.83197392462785
+                                            }, {
+                                              "x" : 481.22533713160374,
+                                              "y" : 289.2727909389135
+                                            }, {
+                                              "x" : 471.6950834864752,
+                                              "y" : 294.2424872703529
+                                            }, {
+                                              "x" : 462.2861498280773,
+                                              "y" : 299.7410629189462
+                                            }, {
+                                              "x" : 452.99853615641007,
+                                              "y" : 305.7685178846933
+                                            }, {
+                                              "x" : 443.8322424714735,
+                                              "y" : 312.32485216759426
+                                            }, {
+                                              "x" : 434.78726877326744,
+                                              "y" : 319.41006576764903
+                                            }, {
+                                              "x" : 425.8636150617921,
+                                              "y" : 327.02415868485764
+                                            }, {
+                                              "x" : 417.0612813370473,
+                                              "y" : 335.16713091922
+                                            }, {
+                                              "x" : 414.9608701419286,
+                                              "y" : 338.06226668940553
+                                            }, {
+                                              "x" : 413.03687491709775,
+                                              "y" : 340.9766168305762
+                                            }, {
+                                              "x" : 411.2892956625547,
+                                              "y" : 343.9101813427321
+                                            }, {
+                                              "x" : 409.71813237829946,
+                                              "y" : 346.86296022587305
+                                            }, {
+                                              "x" : 408.32338506433206,
+                                              "y" : 349.83495347999917
+                                            }, {
+                                              "x" : 407.10505372065256,
+                                              "y" : 352.82616110511054
+                                            }, {
+                                              "x" : 406.0631383472609,
+                                              "y" : 355.8365831012071
+                                            }, {
+                                              "x" : 405.19763894415706,
+                                              "y" : 358.8662194682887
+                                            }, {
+                                              "x" : 404.50855551134094,
+                                              "y" : 361.91507020635544
+                                            }, {
+                                              "x" : 403.99588804881284,
+                                              "y" : 364.9831353154075
+                                            }, {
+                                              "x" : 403.6596365565725,
+                                              "y" : 368.0704147954446
+                                            }, {
+                                              "x" : 403.49980103461996,
+                                              "y" : 371.1769086464669
+                                            }, {
+                                              "x" : 403.5163814829553,
+                                              "y" : 374.3026168684744
+                                            }, {
+                                              "x" : 403.7093779015785,
+                                              "y" : 377.44753946146704
+                                            }, {
+                                              "x" : 404.07879029048945,
+                                              "y" : 380.6116764254448
+                                            }, {
+                                              "x" : 404.6246186496883,
+                                              "y" : 383.7950277604077
+                                            }, {
+                                              "x" : 405.34686297917494,
+                                              "y" : 386.99759346635585
+                                            }, {
+                                              "x" : 406.24552327894946,
+                                              "y" : 390.2193735432892
+                                            }, {
+                                              "x" : 407.32059954901183,
+                                              "y" : 393.4603679912076
+                                            }, {
+                                              "x" : 408.572091789362,
+                                              "y" : 396.72057681011125
+                                            }, {
+                                              "x" : 410.0,
+                                              "y" : 400.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 304.7950130825634
+                                          }, {
+                                            "id" : "a674ea0d-ab27-49e3-95e5-f643c980b668",
+                                            "sourcePort" : "b3460d14-f913-4567-995e-9996f42cce9e",
+                                            "destinationPort" : {
+                                              "@id" : "ccc6efa7-26c9-48fa-a039-0f018dccba58",
+                                              "shape" : "TRIANGLE",
+                                              "parentSystem" : "30537efd-fc06-4d79-b961-0c8a39669778",
+                                              "position" : {
+                                                "x" : 560.0,
+                                                "y" : 366.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : true,
+                                              "connected" : true,
+                                              "connectedSystem" : "c1cf54c2-6213-4316-b601-effce42da77f"
+                                            },
+                                            "wireLength" : 240.53274205396653,
+                                            "consumedLength" : 240.53274205396653,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 240.0,
+                                              "y" : 16.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 240.53274205396653,
+                                            "pathPoints" : [ {
+                                              "x" : 320.0,
+                                              "y" : 350.0
+                                            }, {
+                                              "x" : 560.0,
+                                              "y" : 366.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 240.53274205396653
+                                          }, {
+                                            "id" : "065862a6-9d6e-42f4-92f7-0c50fdc84f7a",
+                                            "sourcePort" : {
+                                              "@id" : "e13ff607-2b29-4f21-b199-85eed6fe0c28",
+                                              "shape" : "HEXAGON",
+                                              "parentSystem" : "86beeab5-6482-4d37-8355-48b01c44ba03",
+                                              "position" : {
+                                                "x" : 490.0,
+                                                "y" : 400.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : false,
+                                              "connected" : true,
+                                              "connectedSystem" : "30537efd-fc06-4d79-b961-0c8a39669778"
+                                            },
+                                            "destinationPort" : "10ce0c7a-377d-4861-95fa-2bb26e842455",
+                                            "wireLength" : 86.02325267042627,
+                                            "consumedLength" : 86.02325267042627,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 70.0,
+                                              "y" : -50.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 86.02325267042627,
+                                            "pathPoints" : [ {
+                                              "x" : 490.0,
+                                              "y" : 400.0
+                                            }, {
+                                              "x" : 560.0,
+                                              "y" : 350.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 86.02325267042627
+                                          }, {
+                                            "id" : "8c289969-7272-4c13-83db-28eaa5d02e30",
+                                            "sourcePort" : {
+                                              "@id" : "c94d30fe-274b-40b9-8793-31fe733b83e8",
+                                              "shape" : "TRIANGLE",
+                                              "parentSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf",
+                                              "position" : {
+                                                "x" : 490.0,
+                                                "y" : 150.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : false,
+                                              "connected" : true,
+                                              "connectedSystem" : "30537efd-fc06-4d79-b961-0c8a39669778"
+                                            },
+                                            "destinationPort" : "34c28951-b598-46e1-b998-fc30dd1830b1",
+                                            "wireLength" : 196.8654362756449,
+                                            "consumedLength" : 196.8654362756449,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 70.0,
+                                              "y" : 184.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 196.8654362756449,
+                                            "pathPoints" : [ {
+                                              "x" : 490.0,
+                                              "y" : 150.0
+                                            }, {
+                                              "x" : 560.0,
+                                              "y" : 334.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 196.8654362756449
+                                          }, {
+                                            "id" : "e7f5be75-9f6b-412a-81e9-eee083e4529b",
+                                            "sourcePort" : "b2a1e574-55de-4c6d-8b80-ccdd64e5326f",
+                                            "destinationPort" : "65f48771-3ea9-455c-af01-91b3913b3ae8",
+                                            "wireLength" : 257.07780923292466,
+                                            "consumedLength" : 257.07780923292466,
+                                            "bends" : [ {
+                                              "position" : {
+                                                "x" : 666.0863509749303,
+                                                "y" : 132.93871866295262
+                                              },
+                                              "maxMoveRadius" : 50.0,
+                                              "movable" : true
+                                            } ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 220.0,
+                                              "y" : 133.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 335.24103563614494,
+                                            "pathPoints" : [ {
+                                              "x" : 490.0,
+                                              "y" : 134.0
+                                            }, {
+                                              "x" : 490.0,
+                                              "y" : 134.0
+                                            }, {
+                                              "x" : 498.0315534427588,
+                                              "y" : 138.5358261009692
+                                            }, {
+                                              "x" : 506.0604756094753,
+                                              "y" : 142.63507447224842
+                                            }, {
+                                              "x" : 514.0867665001496,
+                                              "y" : 146.29774511383778
+                                            }, {
+                                              "x" : 522.1104261147816,
+                                              "y" : 149.52383802573723
+                                            }, {
+                                              "x" : 530.1314544533714,
+                                              "y" : 152.3133532079468
+                                            }, {
+                                              "x" : 538.1498515159188,
+                                              "y" : 154.66629066046636
+                                            }, {
+                                              "x" : 546.1656173024242,
+                                              "y" : 156.5826503832961
+                                            }, {
+                                              "x" : 554.1787518128871,
+                                              "y" : 158.0624323764359
+                                            }, {
+                                              "x" : 562.1892550473076,
+                                              "y" : 159.10563663988577
+                                            }, {
+                                              "x" : 570.1971270056861,
+                                              "y" : 159.7122631736458
+                                            }, {
+                                              "x" : 578.2023676880223,
+                                              "y" : 159.88231197771586
+                                            }, {
+                                              "x" : 586.2049770943161,
+                                              "y" : 159.61578305209602
+                                            }, {
+                                              "x" : 594.2049552245677,
+                                              "y" : 158.91267639678628
+                                            }, {
+                                              "x" : 602.2023020787772,
+                                              "y" : 157.77299201178664
+                                            }, {
+                                              "x" : 610.1970176569441,
+                                              "y" : 156.19672989709707
+                                            }, {
+                                              "x" : 618.1891019590689,
+                                              "y" : 154.18389005271757
+                                            }, {
+                                              "x" : 626.1785549851514,
+                                              "y" : 151.7344724786482
+                                            }, {
+                                              "x" : 634.1653767351918,
+                                              "y" : 148.8484771748889
+                                            }, {
+                                              "x" : 642.1495672091899,
+                                              "y" : 145.5259041414397
+                                            }, {
+                                              "x" : 650.1311264071456,
+                                              "y" : 141.7667533783006
+                                            }, {
+                                              "x" : 658.1100543290592,
+                                              "y" : 137.57102488547156
+                                            }, {
+                                              "x" : 666.0863509749303,
+                                              "y" : 132.93871866295262
+                                            }, {
+                                              "x" : 664.5924008379568,
+                                              "y" : 140.17561983471072
+                                            }, {
+                                              "x" : 663.4308340431409,
+                                              "y" : 147.30364419070418
+                                            }, {
+                                              "x" : 662.6016505904831,
+                                              "y" : 154.32279173093303
+                                            }, {
+                                              "x" : 662.1048504799833,
+                                              "y" : 161.2330624553972
+                                            }, {
+                                              "x" : 661.9404337116415,
+                                              "y" : 168.03445636409674
+                                            }, {
+                                              "x" : 662.1084002854577,
+                                              "y" : 174.72697345703168
+                                            }, {
+                                              "x" : 662.6087502014318,
+                                              "y" : 181.310613734202
+                                            }, {
+                                              "x" : 663.4414834595639,
+                                              "y" : 187.78537719560762
+                                            }, {
+                                              "x" : 664.6066000598539,
+                                              "y" : 194.15126384124864
+                                            }, {
+                                              "x" : 666.1041000023018,
+                                              "y" : 200.40827367112502
+                                            }, {
+                                              "x" : 667.933983286908,
+                                              "y" : 206.55640668523677
+                                            }, {
+                                              "x" : 670.096249913672,
+                                              "y" : 212.59566288358386
+                                            }, {
+                                              "x" : 672.5908998825939,
+                                              "y" : 218.52604226616637
+                                            }, {
+                                              "x" : 675.4179331936739,
+                                              "y" : 224.34754483298417
+                                            }, {
+                                              "x" : 678.5773498469118,
+                                              "y" : 230.0601705840374
+                                            }, {
+                                              "x" : 682.0691498423075,
+                                              "y" : 235.66391951932593
+                                            }, {
+                                              "x" : 685.8933331798613,
+                                              "y" : 241.15879163884986
+                                            }, {
+                                              "x" : 690.0498998595732,
+                                              "y" : 246.5447869426092
+                                            }, {
+                                              "x" : 694.538849881443,
+                                              "y" : 251.82190543060386
+                                            }, {
+                                              "x" : 699.3601832454706,
+                                              "y" : 256.9901471028339
+                                            }, {
+                                              "x" : 704.5138999516564,
+                                              "y" : 262.04951195929925
+                                            }, {
+                                              "x" : 710.0,
+                                              "y" : 267.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 257.07780923292466
+                                          }, {
+                                            "id" : "4b14e958-961d-4085-b2e2-dd7f8a5a128d",
+                                            "sourcePort" : {
+                                              "@id" : "2b4d8d92-d9ba-450a-8eed-15a513dc5c6d",
+                                              "shape" : "SQUARE",
+                                              "parentSystem" : "30537efd-fc06-4d79-b961-0c8a39669778",
+                                              "position" : {
+                                                "x" : 640.0,
+                                                "y" : 350.0
+                                              },
+                                              "currentPacket" : null,
+                                              "relativeOffset" : {
+                                                "x" : 0.0,
+                                                "y" : 0.0
+                                              },
+                                              "empty" : true,
+                                              "input" : false,
+                                              "connected" : true,
+                                              "connectedSystem" : "b4723d32-a691-46b9-bc6c-d67b01a2f473"
+                                            },
+                                            "destinationPort" : "418de96c-7812-4b44-9450-2705ba3b1951",
+                                            "wireLength" : 96.89685237405806,
+                                            "consumedLength" : 96.89685237405806,
+                                            "bends" : [ ],
+                                            "bulkPacketPassages" : 0,
+                                            "packetsOnWire" : [ ],
+                                            "ownerPlayerId" : null,
+                                            "destroyed" : false,
+                                            "active" : true,
+                                            "valid" : true,
+                                            "directionVector" : {
+                                              "x" : 70.0,
+                                              "y" : -67.0
+                                            },
+                                            "maxBulkPassages" : 3,
+                                            "occupied" : false,
+                                            "totalLength" : 96.89685237405806,
+                                            "pathPoints" : [ {
+                                              "x" : 640.0,
+                                              "y" : 350.0
+                                            }, {
+                                              "x" : 710.0,
+                                              "y" : 283.0
+                                            } ],
+                                            "remainingLength" : 0.0,
+                                            "actualDistance" : 96.89685237405806
+                                          } ],
+                                          "packetInjectionSchedule" : { },
+                                          "packetSchedule" : [ {
+                                            "time" : 2.0,
+                                            "packetType" : "TRIANGLE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : true
+                                          }, {
+                                            "time" : 4.0,
+                                            "packetType" : "BULK_SMALL",
+                                            "sourceId" : null,
+                                            "executed" : true
+                                          }, {
+                                            "time" : 6.0,
+                                            "packetType" : "SQUARE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 8.0,
+                                            "packetType" : "SMALL_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 10.0,
+                                            "packetType" : "CONFIDENTIAL",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 12.0,
+                                            "packetType" : "TRIANGLE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 14.0,
+                                            "packetType" : "BULK_LARGE",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 16.0,
+                                            "packetType" : "SQUARE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 18.0,
+                                            "packetType" : "SMALL_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 20.0,
+                                            "packetType" : "TRIANGLE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 22.0,
+                                            "packetType" : "CONFIDENTIAL",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 24.0,
+                                            "packetType" : "SQUARE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 26.0,
+                                            "packetType" : "BULK_SMALL",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 28.0,
+                                            "packetType" : "SMALL_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 30.0,
+                                            "packetType" : "TRIANGLE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 32.0,
+                                            "packetType" : "SQUARE_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 34.0,
+                                            "packetType" : "CONFIDENTIAL",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 36.0,
+                                            "packetType" : "SMALL_MESSENGER",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          }, {
+                                            "time" : 38.0,
+                                            "packetType" : "BULK_LARGE",
+                                            "sourceId" : null,
+                                            "executed" : false
+                                          } ],
+                                          "connectionRules" : [ ],
+                                          "completed" : false
+                                        },
+                                        "active" : true,
+                                        "deactivated" : false,
+                                        "allPorts" : [ "475faa5a-ce0f-4a6c-86d4-c87d63cc1f92", "b3460d14-f913-4567-995e-9996f42cce9e" ],
+                                        "totalPacketCount" : 0,
+                                        "failed" : false,
+                                        "availableOutputPorts" : [ "b3460d14-f913-4567-995e-9996f42cce9e" ],
+                                        "coinValue" : 0
+                                      }, "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                                      "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                                      "packetInjectionSchedule" : { },
+                                      "packetSchedule" : [ {
+                                        "time" : 2.0,
+                                        "packetType" : "TRIANGLE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : true
+                                      }, {
+                                        "time" : 4.0,
+                                        "packetType" : "BULK_SMALL",
+                                        "sourceId" : null,
+                                        "executed" : true
+                                      }, {
+                                        "time" : 6.0,
+                                        "packetType" : "SQUARE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 8.0,
+                                        "packetType" : "SMALL_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 10.0,
+                                        "packetType" : "CONFIDENTIAL",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 12.0,
+                                        "packetType" : "TRIANGLE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 14.0,
+                                        "packetType" : "BULK_LARGE",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 16.0,
+                                        "packetType" : "SQUARE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 18.0,
+                                        "packetType" : "SMALL_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 20.0,
+                                        "packetType" : "TRIANGLE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 22.0,
+                                        "packetType" : "CONFIDENTIAL",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 24.0,
+                                        "packetType" : "SQUARE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 26.0,
+                                        "packetType" : "BULK_SMALL",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 28.0,
+                                        "packetType" : "SMALL_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 30.0,
+                                        "packetType" : "TRIANGLE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 32.0,
+                                        "packetType" : "SQUARE_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 34.0,
+                                        "packetType" : "CONFIDENTIAL",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 36.0,
+                                        "packetType" : "SMALL_MESSENGER",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      }, {
+                                        "time" : 38.0,
+                                        "packetType" : "BULK_LARGE",
+                                        "sourceId" : null,
+                                        "executed" : false
+                                      } ],
+                                      "connectionRules" : [ ],
+                                      "completed" : false
+                                    },
+                                    "active" : true,
+                                    "deactivated" : false,
+                                    "allPorts" : [ "565881db-eb96-44df-8291-dd469e359e50", "1aa3c400-0569-475c-9576-8dfc616c4551" ],
+                                    "totalPacketCount" : 0,
+                                    "failed" : false,
+                                    "availableOutputPorts" : [ "1aa3c400-0569-475c-9576-8dfc616c4551" ],
+                                    "coinValue" : 0
+                                  }
+                                } ],
+                                "outputPorts" : [ "e13ff607-2b29-4f21-b199-85eed6fe0c28" ],
+                                "storage" : [ ],
+                                "systemType" : "SABOTEUR",
+                                "deactivationTimer" : 0.0,
+                                "maxDeactivationTime" : 10.0,
+                                "indicatorVisible" : true,
+                                "parentLevel" : {
+                                  "levelId" : "level4",
+                                  "name" : "Bulk Packets",
+                                  "description" : null,
+                                  "initialWireLength" : 4500.0,
+                                  "levelDuration" : 90.0,
+                                  "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                                  "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                                  "packetInjectionSchedule" : { },
+                                  "packetSchedule" : [ {
+                                    "time" : 2.0,
+                                    "packetType" : "TRIANGLE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : true
+                                  }, {
+                                    "time" : 4.0,
+                                    "packetType" : "BULK_SMALL",
+                                    "sourceId" : null,
+                                    "executed" : true
+                                  }, {
+                                    "time" : 6.0,
+                                    "packetType" : "SQUARE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 8.0,
+                                    "packetType" : "SMALL_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 10.0,
+                                    "packetType" : "CONFIDENTIAL",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 12.0,
+                                    "packetType" : "TRIANGLE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 14.0,
+                                    "packetType" : "BULK_LARGE",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 16.0,
+                                    "packetType" : "SQUARE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 18.0,
+                                    "packetType" : "SMALL_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 20.0,
+                                    "packetType" : "TRIANGLE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 22.0,
+                                    "packetType" : "CONFIDENTIAL",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 24.0,
+                                    "packetType" : "SQUARE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 26.0,
+                                    "packetType" : "BULK_SMALL",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 28.0,
+                                    "packetType" : "SMALL_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 30.0,
+                                    "packetType" : "TRIANGLE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 32.0,
+                                    "packetType" : "SQUARE_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 34.0,
+                                    "packetType" : "CONFIDENTIAL",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 36.0,
+                                    "packetType" : "SMALL_MESSENGER",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  }, {
+                                    "time" : 38.0,
+                                    "packetType" : "BULK_LARGE",
+                                    "sourceId" : null,
+                                    "executed" : false
+                                  } ],
+                                  "connectionRules" : [ ],
+                                  "completed" : false
+                                },
+                                "active" : true,
+                                "deactivated" : false,
+                                "allPorts" : [ "23947ab7-8faf-400c-8a41-03aa99e8d5cb", "e13ff607-2b29-4f21-b199-85eed6fe0c28" ],
+                                "totalPacketCount" : 0,
+                                "failed" : false,
+                                "availableOutputPorts" : [ "e13ff607-2b29-4f21-b199-85eed6fe0c28" ],
+                                "coinValue" : 0
+                              }
+                            }, "ccc6efa7-26c9-48fa-a039-0f018dccba58" ],
+                            "outputPorts" : [ "2b4d8d92-d9ba-450a-8eed-15a513dc5c6d" ],
+                            "storage" : [ ],
+                            "systemType" : "NORMAL",
+                            "deactivationTimer" : 0.0,
+                            "maxDeactivationTime" : 10.0,
+                            "indicatorVisible" : true,
+                            "parentLevel" : {
+                              "levelId" : "level4",
+                              "name" : "Bulk Packets",
+                              "description" : null,
+                              "initialWireLength" : 4500.0,
+                              "levelDuration" : 90.0,
+                              "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                              "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                              "packetInjectionSchedule" : { },
+                              "packetSchedule" : [ {
+                                "time" : 2.0,
+                                "packetType" : "TRIANGLE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : true
+                              }, {
+                                "time" : 4.0,
+                                "packetType" : "BULK_SMALL",
+                                "sourceId" : null,
+                                "executed" : true
+                              }, {
+                                "time" : 6.0,
+                                "packetType" : "SQUARE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 8.0,
+                                "packetType" : "SMALL_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 10.0,
+                                "packetType" : "CONFIDENTIAL",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 12.0,
+                                "packetType" : "TRIANGLE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 14.0,
+                                "packetType" : "BULK_LARGE",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 16.0,
+                                "packetType" : "SQUARE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 18.0,
+                                "packetType" : "SMALL_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 20.0,
+                                "packetType" : "TRIANGLE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 22.0,
+                                "packetType" : "CONFIDENTIAL",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 24.0,
+                                "packetType" : "SQUARE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 26.0,
+                                "packetType" : "BULK_SMALL",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 28.0,
+                                "packetType" : "SMALL_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 30.0,
+                                "packetType" : "TRIANGLE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 32.0,
+                                "packetType" : "SQUARE_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 34.0,
+                                "packetType" : "CONFIDENTIAL",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 36.0,
+                                "packetType" : "SMALL_MESSENGER",
+                                "sourceId" : null,
+                                "executed" : false
+                              }, {
+                                "time" : 38.0,
+                                "packetType" : "BULK_LARGE",
+                                "sourceId" : null,
+                                "executed" : false
+                              } ],
+                              "connectionRules" : [ ],
+                              "completed" : false
+                            },
+                            "coinValue" : 0,
+                            "active" : true,
+                            "deactivated" : false,
+                            "allPorts" : [ "34c28951-b598-46e1-b998-fc30dd1830b1", "10ce0c7a-377d-4861-95fa-2bb26e842455", "ccc6efa7-26c9-48fa-a039-0f018dccba58", "2b4d8d92-d9ba-450a-8eed-15a513dc5c6d" ],
+                            "totalPacketCount" : 0,
+                            "failed" : false,
+                            "availableOutputPorts" : [ "2b4d8d92-d9ba-450a-8eed-15a513dc5c6d" ]
+                          }
+                        } ],
+                        "outputPorts" : [ ],
+                        "storage" : [ ],
+                        "systemType" : "REFERENCE",
+                        "deactivationTimer" : 0.0,
+                        "maxDeactivationTime" : 10.0,
+                        "indicatorVisible" : false,
+                        "parentLevel" : {
+                          "levelId" : "level4",
+                          "name" : "Bulk Packets",
+                          "description" : null,
+                          "initialWireLength" : 4500.0,
+                          "levelDuration" : 90.0,
+                          "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                          "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                          "packetInjectionSchedule" : { },
+                          "packetSchedule" : [ {
+                            "time" : 2.0,
+                            "packetType" : "TRIANGLE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : true
+                          }, {
+                            "time" : 4.0,
+                            "packetType" : "BULK_SMALL",
+                            "sourceId" : null,
+                            "executed" : true
+                          }, {
+                            "time" : 6.0,
+                            "packetType" : "SQUARE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 8.0,
+                            "packetType" : "SMALL_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 10.0,
+                            "packetType" : "CONFIDENTIAL",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 12.0,
+                            "packetType" : "TRIANGLE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 14.0,
+                            "packetType" : "BULK_LARGE",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 16.0,
+                            "packetType" : "SQUARE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 18.0,
+                            "packetType" : "SMALL_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 20.0,
+                            "packetType" : "TRIANGLE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 22.0,
+                            "packetType" : "CONFIDENTIAL",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 24.0,
+                            "packetType" : "SQUARE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 26.0,
+                            "packetType" : "BULK_SMALL",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 28.0,
+                            "packetType" : "SMALL_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 30.0,
+                            "packetType" : "TRIANGLE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 32.0,
+                            "packetType" : "SQUARE_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 34.0,
+                            "packetType" : "CONFIDENTIAL",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 36.0,
+                            "packetType" : "SMALL_MESSENGER",
+                            "sourceId" : null,
+                            "executed" : false
+                          }, {
+                            "time" : 38.0,
+                            "packetType" : "BULK_LARGE",
+                            "sourceId" : null,
+                            "executed" : false
+                          } ],
+                          "connectionRules" : [ ],
+                          "completed" : false
+                        },
+                        "injectedPackets" : [ ],
+                        "injectionInterval" : 2.0,
+                        "lastInjectionTime" : 0.0,
+                        "deliveredPacketCount" : 0,
+                        "receivedPacketCount" : 0,
+                        "source" : false,
+                        "active" : true,
+                        "deactivated" : false,
+                        "allPorts" : [ "65f48771-3ea9-455c-af01-91b3913b3ae8", "418de96c-7812-4b44-9450-2705ba3b1951" ],
+                        "totalPacketCount" : 0,
+                        "failed" : false,
+                        "availableOutputPorts" : [ ],
+                        "coinValue" : 0
+                      }
+                    }, "c94d30fe-274b-40b9-8793-31fe733b83e8", "2e61be6b-207a-4a33-a198-631a169250de" ],
+                    "storage" : [ ],
+                    "systemType" : "NORMAL",
+                    "deactivationTimer" : 0.0,
+                    "maxDeactivationTime" : 10.0,
+                    "indicatorVisible" : true,
+                    "parentLevel" : {
+                      "levelId" : "level4",
+                      "name" : "Bulk Packets",
+                      "description" : null,
+                      "initialWireLength" : 4500.0,
+                      "levelDuration" : 90.0,
+                      "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                      "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                      "packetInjectionSchedule" : { },
+                      "packetSchedule" : [ {
+                        "time" : 2.0,
+                        "packetType" : "TRIANGLE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : true
+                      }, {
+                        "time" : 4.0,
+                        "packetType" : "BULK_SMALL",
+                        "sourceId" : null,
+                        "executed" : true
+                      }, {
+                        "time" : 6.0,
+                        "packetType" : "SQUARE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 8.0,
+                        "packetType" : "SMALL_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 10.0,
+                        "packetType" : "CONFIDENTIAL",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 12.0,
+                        "packetType" : "TRIANGLE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 14.0,
+                        "packetType" : "BULK_LARGE",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 16.0,
+                        "packetType" : "SQUARE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 18.0,
+                        "packetType" : "SMALL_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 20.0,
+                        "packetType" : "TRIANGLE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 22.0,
+                        "packetType" : "CONFIDENTIAL",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 24.0,
+                        "packetType" : "SQUARE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 26.0,
+                        "packetType" : "BULK_SMALL",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 28.0,
+                        "packetType" : "SMALL_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 30.0,
+                        "packetType" : "TRIANGLE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 32.0,
+                        "packetType" : "SQUARE_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 34.0,
+                        "packetType" : "CONFIDENTIAL",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 36.0,
+                        "packetType" : "SMALL_MESSENGER",
+                        "sourceId" : null,
+                        "executed" : false
+                      }, {
+                        "time" : 38.0,
+                        "packetType" : "BULK_LARGE",
+                        "sourceId" : null,
+                        "executed" : false
+                      } ],
+                      "connectionRules" : [ ],
+                      "completed" : false
+                    },
+                    "coinValue" : 0,
+                    "active" : true,
+                    "deactivated" : false,
+                    "allPorts" : [ "0c28d696-3c1b-4029-a5a8-3a49a4123660", "26187681-ef3e-4d25-8b28-91b7311d5f99", "b2a1e574-55de-4c6d-8b80-ccdd64e5326f", "c94d30fe-274b-40b9-8793-31fe733b83e8", "2e61be6b-207a-4a33-a198-631a169250de" ],
+                    "totalPacketCount" : 0,
+                    "failed" : false,
+                    "availableOutputPorts" : [ "b2a1e574-55de-4c6d-8b80-ccdd64e5326f", "c94d30fe-274b-40b9-8793-31fe733b83e8", "2e61be6b-207a-4a33-a198-631a169250de" ]
+                  }
+                } ],
+                "storage" : [ ],
+                "systemType" : "VPN",
+                "deactivationTimer" : 0.0,
+                "maxDeactivationTime" : 10.0,
+                "indicatorVisible" : true,
+                "parentLevel" : {
+                  "levelId" : "level4",
+                  "name" : "Bulk Packets",
+                  "description" : null,
+                  "initialWireLength" : 4500.0,
+                  "levelDuration" : 90.0,
+                  "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+                  "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+                  "packetInjectionSchedule" : { },
+                  "packetSchedule" : [ {
+                    "time" : 2.0,
+                    "packetType" : "TRIANGLE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : true
+                  }, {
+                    "time" : 4.0,
+                    "packetType" : "BULK_SMALL",
+                    "sourceId" : null,
+                    "executed" : true
+                  }, {
+                    "time" : 6.0,
+                    "packetType" : "SQUARE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 8.0,
+                    "packetType" : "SMALL_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 10.0,
+                    "packetType" : "CONFIDENTIAL",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 12.0,
+                    "packetType" : "TRIANGLE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 14.0,
+                    "packetType" : "BULK_LARGE",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 16.0,
+                    "packetType" : "SQUARE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 18.0,
+                    "packetType" : "SMALL_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 20.0,
+                    "packetType" : "TRIANGLE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 22.0,
+                    "packetType" : "CONFIDENTIAL",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 24.0,
+                    "packetType" : "SQUARE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 26.0,
+                    "packetType" : "BULK_SMALL",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 28.0,
+                    "packetType" : "SMALL_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 30.0,
+                    "packetType" : "TRIANGLE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 32.0,
+                    "packetType" : "SQUARE_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 34.0,
+                    "packetType" : "CONFIDENTIAL",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 36.0,
+                    "packetType" : "SMALL_MESSENGER",
+                    "sourceId" : null,
+                    "executed" : false
+                  }, {
+                    "time" : 38.0,
+                    "packetType" : "BULK_LARGE",
+                    "sourceId" : null,
+                    "executed" : false
+                  } ],
+                  "connectionRules" : [ ],
+                  "completed" : false
+                },
+                "active" : true,
+                "deactivated" : false,
+                "allPorts" : [ "e11bdf3a-c988-4bf7-a5d5-757f026d0a17", "c0b7b561-d137-44d1-ad33-21b43c208a57" ],
+                "totalPacketCount" : 0,
+                "failed" : false,
+                "availableOutputPorts" : [ "c0b7b561-d137-44d1-ad33-21b43c208a57" ],
+                "coinValue" : 0
+              }
+            }, "8b190363-df5d-464e-b90b-280ad4cf2893", "aea492a9-743e-4c60-b34e-b7b787ea61e6" ],
+            "storage" : [ ],
+            "systemType" : "REFERENCE",
+            "deactivationTimer" : 0.0,
+            "maxDeactivationTime" : 10.0,
+            "indicatorVisible" : false,
+            "parentLevel" : {
+              "levelId" : "level4",
+              "name" : "Bulk Packets",
+              "description" : null,
+              "initialWireLength" : 4500.0,
+              "levelDuration" : 90.0,
+              "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+              "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+              "packetInjectionSchedule" : { },
+              "packetSchedule" : [ {
+                "time" : 2.0,
+                "packetType" : "TRIANGLE_MESSENGER",
+                "sourceId" : null,
+                "executed" : true
+              }, {
+                "time" : 4.0,
+                "packetType" : "BULK_SMALL",
+                "sourceId" : null,
+                "executed" : true
+              }, {
+                "time" : 6.0,
+                "packetType" : "SQUARE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 8.0,
+                "packetType" : "SMALL_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 10.0,
+                "packetType" : "CONFIDENTIAL",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 12.0,
+                "packetType" : "TRIANGLE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 14.0,
+                "packetType" : "BULK_LARGE",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 16.0,
+                "packetType" : "SQUARE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 18.0,
+                "packetType" : "SMALL_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 20.0,
+                "packetType" : "TRIANGLE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 22.0,
+                "packetType" : "CONFIDENTIAL",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 24.0,
+                "packetType" : "SQUARE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 26.0,
+                "packetType" : "BULK_SMALL",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 28.0,
+                "packetType" : "SMALL_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 30.0,
+                "packetType" : "TRIANGLE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 32.0,
+                "packetType" : "SQUARE_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 34.0,
+                "packetType" : "CONFIDENTIAL",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 36.0,
+                "packetType" : "SMALL_MESSENGER",
+                "sourceId" : null,
+                "executed" : false
+              }, {
+                "time" : 38.0,
+                "packetType" : "BULK_LARGE",
+                "sourceId" : null,
+                "executed" : false
+              } ],
+              "connectionRules" : [ ],
+              "completed" : false
+            },
+            "injectedPackets" : [ ],
+            "injectionInterval" : 2.0,
+            "lastInjectionTime" : 0.0,
+            "deliveredPacketCount" : 0,
+            "receivedPacketCount" : 0,
+            "source" : false,
+            "active" : true,
+            "deactivated" : false,
+            "allPorts" : [ "125660bb-9acd-4f52-8cbe-770b166a9bfe", "8b190363-df5d-464e-b90b-280ad4cf2893", "aea492a9-743e-4c60-b34e-b7b787ea61e6" ],
+            "totalPacketCount" : 0,
+            "failed" : false,
+            "availableOutputPorts" : [ "125660bb-9acd-4f52-8cbe-770b166a9bfe", "8b190363-df5d-464e-b90b-280ad4cf2893", "aea492a9-743e-4c60-b34e-b7b787ea61e6" ],
+            "coinValue" : 0
+          },
+          "position" : {
+            "x" : 140.0,
+            "y" : 300.0
+          },
+          "currentPacket" : null,
+          "relativeOffset" : {
+            "x" : 0.0,
+            "y" : 0.0
+          },
+          "empty" : true,
+          "input" : false,
+          "connected" : true,
+          "connectedSystem" : "d7856129-a0bf-498c-a4d3-4b429842b5bf"
+        },
+        "destinationPort" : "0c28d696-3c1b-4029-a5a8-3a49a4123660",
+        "wireLength" : 312.8322234041755,
+        "consumedLength" : 312.8322234041755,
+        "bends" : [ {
+          "position" : {
+            "x" : 338.9275766016713,
+            "y" : 252.43732590529245
+          },
+          "maxMoveRadius" : 50.0,
+          "movable" : true
+        } ],
+        "bulkPacketPassages" : 0,
+        "packetsOnWire" : [ {
+          "size" : 3,
+          "noiseLevel" : 0.0,
+          "currentPosition" : {
+            "x" : 405.0501201138236,
+            "y" : 176.09575118793342
+          },
+          "movementVector" : {
+            "x" : 31.90836729994182,
+            "y" : -110.80865697848513
+          },
+          "id" : "e20222f0-0948-4778-9319-def115177f7a",
+          "packetType" : "TRIANGLE_MESSENGER",
+          "originalPacketType" : null,
+          "travelTime" : 0.0,
+          "pathProgress" : 0.9027231328913929,
+          "currentWire" : "dc5cb95e-cc45-40b9-ae97-703705a59c42",
+          "baseSpeed" : 115.31132799999996,
+          "maxTravelTime" : 30.0,
+          "retryDestination" : false,
+          "sourcePosition" : {
+            "x" : 0.0,
+            "y" : 0.0
+          },
+          "destinationPosition" : {
+            "x" : 0.0,
+            "y" : 0.0
+          },
+          "bulkPacketId" : null,
+          "bulkPacketColor" : 0,
+          "ownerId" : null,
+          "active" : true,
+          "returningToSource" : false,
+          "reversing" : false
+        } ],
+        "ownerPlayerId" : null,
+        "destroyed" : false,
+        "active" : true,
+        "valid" : true,
+        "directionVector" : {
+          "x" : 270.0,
+          "y" : -158.0
+        },
+        "maxBulkPassages" : 3,
+        "occupied" : true,
+        "totalLength" : 355.0144249073076,
+        "pathPoints" : [ {
+          "x" : 140.0,
+          "y" : 300.0
+        }, {
+          "x" : 140.0,
+          "y" : 300.0
+        }, {
+          "x" : 149.83584415857953,
+          "y" : 302.89584594889186
+        }, {
+          "x" : 159.56379567270986,
+          "y" : 305.3404384158896
+        }, {
+          "x" : 169.18385454239092,
+          "y" : 307.3337774009931
+        }, {
+          "x" : 178.6960207676227,
+          "y" : 308.8758629042025
+        }, {
+          "x" : 188.10029434840533,
+          "y" : 309.9666949255178
+        }, {
+          "x" : 197.39667528473862,
+          "y" : 310.6062734649388
+        }, {
+          "x" : 206.58516357662276,
+          "y" : 310.7945985224657
+        }, {
+          "x" : 215.66575922405758,
+          "y" : 310.5316700980986
+        }, {
+          "x" : 224.63846222704322,
+          "y" : 309.8174881918373
+        }, {
+          "x" : 233.5032725855796,
+          "y" : 308.6520528036817
+        }, {
+          "x" : 242.2601902996667,
+          "y" : 307.0353639336321
+        }, {
+          "x" : 250.90921536930458,
+          "y" : 304.96742158168826
+        }, {
+          "x" : 259.4503477944932,
+          "y" : 302.4482257478503
+        }, {
+          "x" : 267.88358757523264,
+          "y" : 299.47777643211816
+        }, {
+          "x" : 276.2089347115228,
+          "y" : 296.05607363449195
+        }, {
+          "x" : 284.42638920336367,
+          "y" : 292.1831173549715
+        }, {
+          "x" : 292.53595105075533,
+          "y" : 287.858907593557
+        }, {
+          "x" : 300.5376202536978,
+          "y" : 283.0834443502482
+        }, {
+          "x" : 308.431396812191,
+          "y" : 277.8567276250454
+        }, {
+          "x" : 316.2172807262349,
+          "y" : 272.1787574179484
+        }, {
+          "x" : 323.8952719958296,
+          "y" : 266.0495337289572
+        }, {
+          "x" : 331.4653706209751,
+          "y" : 259.46905655807194
+        }, {
+          "x" : 338.9275766016713,
+          "y" : 252.43732590529245
+        }, {
+          "x" : 345.033162595824,
+          "y" : 249.2676799650084
+        }, {
+          "x" : 350.8649370381454,
+          "y" : 245.92182140472843
+        }, {
+          "x" : 356.4228999286355,
+          "y" : 242.39975022445267
+        }, {
+          "x" : 361.70705126729433,
+          "y" : 238.70146642418104
+        }, {
+          "x" : 366.71739105412183,
+          "y" : 234.8269700039135
+        }, {
+          "x" : 371.453919289118,
+          "y" : 230.77626096365015
+        }, {
+          "x" : 375.91663597228296,
+          "y" : 226.54933930339095
+        }, {
+          "x" : 380.1055411036166,
+          "y" : 222.1462050231359
+        }, {
+          "x" : 384.0206346831188,
+          "y" : 217.56685812288492
+        }, {
+          "x" : 387.6619167107898,
+          "y" : 212.81129860263815
+        }, {
+          "x" : 391.0293871866295,
+          "y" : 207.87952646239555
+        }, {
+          "x" : 394.12304611063786,
+          "y" : 202.77154170215704
+        }, {
+          "x" : 396.94289348281495,
+          "y" : 197.4873443219227
+        }, {
+          "x" : 399.4889293031607,
+          "y" : 192.0269343216925
+        }, {
+          "x" : 401.7611535716752,
+          "y" : 186.39031170146643
+        }, {
+          "x" : 403.75956628835837,
+          "y" : 180.5774764612445
+        }, {
+          "x" : 405.4841674532102,
+          "y" : 174.58842860102675
+        }, {
+          "x" : 406.9349570662308,
+          "y" : 168.4231681208131
+        }, {
+          "x" : 408.11193512742005,
+          "y" : 162.0816950206036
+        }, {
+          "x" : 409.015101636778,
+          "y" : 155.56400930039825
+        }, {
+          "x" : 409.6444565943047,
+          "y" : 148.87011096019705
+        }, {
+          "x" : 410.0,
+          "y" : 142.0
+        } ],
+        "remainingLength" : 0.0,
+        "actualDistance" : 312.8322234041755
+      },
+      "baseSpeed" : 115.31132799999996,
+      "maxTravelTime" : 30.0,
+      "retryDestination" : false,
+      "sourcePosition" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "destinationPosition" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "bulkPacketId" : null,
+      "bulkPacketColor" : 0,
+      "ownerId" : null,
+      "active" : true,
+      "returningToSource" : false,
+      "reversing" : false
+    }, {
+      "size" : 8,
+      "noiseLevel" : 0.0,
+      "currentPosition" : {
+        "x" : 174.81898071955632,
+        "y" : 254.7520561955727
+      },
+      "movementVector" : {
+        "x" : 34.14885196054648,
+        "y" : -28.68503564685918
+      },
+      "id" : "7c3416d5-bc1b-4876-956e-6b4efb6d48a9",
+      "packetType" : "BULK_SMALL",
+      "originalPacketType" : null,
+      "travelTime" : 0.0,
+      "pathProgress" : 0.34818980719556325,
+      "currentWire" : "a92f7f59-826b-476d-a401-321e240d2a05",
+      "baseSpeed" : 44.59793000000001,
+      "maxTravelTime" : 30.0,
+      "retryDestination" : false,
+      "sourcePosition" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "destinationPosition" : {
+        "x" : 0.0,
+        "y" : 0.0
+      },
+      "bulkPacketId" : null,
+      "bulkPacketColor" : 0,
+      "ownerId" : null,
+      "wirePassageCount" : 0,
+      "active" : true,
+      "returningToSource" : false,
+      "reversing" : false
+    } ],
+    "currentLevel" : {
+      "levelId" : "level4",
+      "name" : "Bulk Packets",
+      "description" : null,
+      "initialWireLength" : 4500.0,
+      "levelDuration" : 90.0,
+      "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+      "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+      "packetInjectionSchedule" : { },
+      "packetSchedule" : [ {
+        "time" : 2.0,
+        "packetType" : "TRIANGLE_MESSENGER",
+        "sourceId" : null,
+        "executed" : true
+      }, {
+        "time" : 4.0,
+        "packetType" : "BULK_SMALL",
+        "sourceId" : null,
+        "executed" : true
+      }, {
+        "time" : 6.0,
+        "packetType" : "SQUARE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 8.0,
+        "packetType" : "SMALL_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 10.0,
+        "packetType" : "CONFIDENTIAL",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 12.0,
+        "packetType" : "TRIANGLE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 14.0,
+        "packetType" : "BULK_LARGE",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 16.0,
+        "packetType" : "SQUARE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 18.0,
+        "packetType" : "SMALL_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 20.0,
+        "packetType" : "TRIANGLE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 22.0,
+        "packetType" : "CONFIDENTIAL",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 24.0,
+        "packetType" : "SQUARE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 26.0,
+        "packetType" : "BULK_SMALL",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 28.0,
+        "packetType" : "SMALL_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 30.0,
+        "packetType" : "TRIANGLE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 32.0,
+        "packetType" : "SQUARE_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 34.0,
+        "packetType" : "CONFIDENTIAL",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 36.0,
+        "packetType" : "SMALL_MESSENGER",
+        "sourceId" : null,
+        "executed" : false
+      }, {
+        "time" : 38.0,
+        "packetType" : "BULK_LARGE",
+        "sourceId" : null,
+        "executed" : false
+      } ],
+      "connectionRules" : [ ],
+      "completed" : false
+    },
+    "levelTimer" : 5.002097900000004,
+    "lostPacketsCount" : 0,
+    "showSystemIndicators" : true,
+    "lastGameOverReason" : "NONE",
+    "paused" : false,
+    "wireConnections" : [ "a92f7f59-826b-476d-a401-321e240d2a05", "dc5cb95e-cc45-40b9-ae97-703705a59c42", "bcda5af9-17ea-4924-96c2-0f67eaeacc2e", "153a82a9-15f3-486a-951d-4fa1a6b4fb8c", "e2200179-02d2-485e-8187-ebf9f3924abe", "66b03b00-34a4-4635-8caa-302dfa5c8e67", "a674ea0d-ab27-49e3-95e5-f643c980b668", "065862a6-9d6e-42f4-92f7-0c50fdc84f7a", "8c289969-7272-4c13-83db-28eaa5d02e30", "e7f5be75-9f6b-412a-81e9-eee083e4529b", "4b14e958-961d-4085-b2e2-dd7f8a5a128d" ],
+    "systems" : [ "fb89f1d2-6984-4550-b126-923becde0ca1", "12cd03d0-9884-4449-9953-b79652062691", "c1cf54c2-6213-4316-b601-effce42da77f", "f4354387-d5ac-4bc2-b110-cbee890300ef", "86beeab5-6482-4d37-8355-48b01c44ba03", "d7856129-a0bf-498c-a4d3-4b429842b5bf", "30537efd-fc06-4d79-b961-0c8a39669778", "b4723d32-a691-46b9-bc6c-d67b01a2f473" ],
+    "levelComplete" : false,
+    "gameOver" : false,
+    "totalLostPackets" : 0,
+    "totalInjectedPackets" : 19,
+    "totalDeliveredPackets" : 0
+  },
+  "checksum" : "cc9afbc9",
+  "validationHash" : "HTHGtWbcXTMlLeew1UQBbi+gXFQ/+MFKnEjP1Y5Azo0="
+}

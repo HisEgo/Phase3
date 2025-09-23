@@ -232,6 +232,19 @@ public class MainApp extends Application {
                 primaryStage.requestFocus();
                 primaryStage.toFront();
 
+                // After layout is ready, reset viewport so content becomes visible
+                Platform.runLater(() -> {
+                    try {
+                        gameController.getGameView().resetViewport();
+                        gameController.getGameView().requestFocus();
+                        // Fallback: if چیزی نمایش داده نشد، اسکیل و آفست را به حالت پایه ببریم
+                        gameController.getGameView().setAutoScaleEnabled(false);
+                        gameController.getGameView().setViewportScale(1.0);
+                        gameController.getGameView().setViewportOffset(new model.Point2D(0, 0));
+                        gameController.getGameView().update();
+                    } catch (Exception ignore) {}
+                });
+
                 // Minimize other applications with robust implementation
                 // Add a small delay to ensure the window is fully visible and focused
                 new Thread(() -> {
@@ -294,12 +307,35 @@ public class MainApp extends Application {
                 return;
             }
 
+            // Ensure the level select root has sensible preferred size
+            if (gameController != null && gameController.getLevelSelectView() != null
+                    && gameController.getLevelSelectView().getRoot() != null) {
+                gameController.getLevelSelectView().getRoot().setPrefSize(
+                        primaryStage.getWidth(), primaryStage.getHeight());
+                // Also bind to the scene size once attached
+                gameController.getLevelSelectView().getRoot().sceneProperty().addListener((o, os, ns) -> {
+                    if (ns != null) {
+                        gameController.getLevelSelectView().getRoot().prefWidthProperty().bind(ns.widthProperty());
+                        gameController.getLevelSelectView().getRoot().prefHeightProperty().bind(ns.heightProperty());
+                    }
+                });
+            }
+
             if (primaryStage.getScene() == null) {
                 Scene levelScene = new Scene(gameController.getLevelSelectView().getRoot());
                 primaryStage.setScene(levelScene);
             } else {
                 primaryStage.getScene().setRoot(gameController.getLevelSelectView().getRoot());
             }
+
+            // Ensure focus and force a viewport reset once the scene is visible
+            Platform.runLater(() -> {
+                try {
+                    if (gameController != null && gameController.getGameView() != null) {
+                        gameController.getGameView().resetViewport();
+                    }
+                } catch (Exception ignore) {}
+            });
         } catch (Exception e) {
             showErrorDialog("Level Select Error", "Failed to load level selection", e.getMessage());
         }

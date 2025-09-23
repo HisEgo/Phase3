@@ -29,6 +29,8 @@ public class LevelSelectView {
     private void initializeUI() {
         root = new StackPane();
         root.setStyle("-fx-background-color: linear-gradient(to bottom, #1a1a2e, #16213e);");
+        // Ensure the view has a reasonable preferred size so it doesn't collapse to 0x0
+        root.setPrefSize(1000, 700);
 
         VBox container = new VBox(20);
         container.setAlignment(Pos.CENTER);
@@ -108,9 +110,10 @@ public class LevelSelectView {
         button.setOnAction(e -> {
             System.out.println("Level button clicked: " + levelId);
             try {
-                if (gameController.getMainApp() != null) {
-                    System.out.println("Using MainApp.startGame for proper scene transition");
-                    gameController.getMainApp().startGame(levelId);
+                app.MainApp appRef = app.MainApp.getInstance() != null ? app.MainApp.getInstance() : gameController.getMainApp();
+                if (appRef != null) {
+                    System.out.println("Using MainApp.startFreshGame for proper scene transition (via instance fallback)");
+                    appRef.startFreshGame(levelId);
                 } else {
                     System.err.println("MainApp is null, falling back to direct controller calls");
                     gameController.loadLevel(levelId);
